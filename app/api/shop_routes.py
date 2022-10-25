@@ -27,7 +27,7 @@ def create_shop():
     if form.validate_on_submit():
 
       shopData = Shop(
-        owener_id = current_user.id,
+        owner_id = current_user.id,
         shop_name = form.data["shop_name"],
         shop_description = form.data["shop_description"],
         shop_img = form.data["shop_img"]
