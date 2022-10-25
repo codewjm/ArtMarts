@@ -11,6 +11,8 @@ class Item(db.model):
   shop_id = db.column(db.integer, db.foreignkey('shops.id'), nullable = False)
   # category_id = db.column(db.integer, db.foreignkey('categories.id'), nullable = False)
 
+  item = db.relationship('Shop', back_populates='shop_item')
+  review = db.relationship('Review', back_populates='item_reviews', cascade='all, delete')
 
   def to_dict(self):
     return {

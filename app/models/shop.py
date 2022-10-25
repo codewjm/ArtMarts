@@ -10,7 +10,7 @@ class Shop(db.model):
   shop_img = db.column(db.string(255), nullable = False)
 
   owner = db.relationship('User', back_populates='shop_owner')
-  
+  shop_item = db.relationship('Item', back_populates='item', cascade='all, delete')
 
   def to_dict(self):
     return {

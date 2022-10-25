@@ -13,6 +13,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
+    review_author = db.relationship('Review', back_populates='author_review')
     shop_owner = db.relationship('Shop', back_populates='owner')
 
     @property
