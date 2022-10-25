@@ -16,7 +16,7 @@ def get_reviews():
 
 #*************************************************************************#
 #CREATE A REVIEW
-@review_routes.route('/', methods=['POST'])
+@review_routes.route('/create_review', methods=['POST'])
 @login_required
 def create_review():
 

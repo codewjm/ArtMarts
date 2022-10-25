@@ -40,7 +40,7 @@ def update_item(item_id):
 
 #*************************************************************************#
 #CREATE AN ITEM
-@item_routes.route('/', methods=['POST'])
+@item_routes.route('/create_item', methods=['POST'])
 @login_required
 def create_item():
 

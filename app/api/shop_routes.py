@@ -16,7 +16,7 @@ def get_shops():
 
 #*************************************************************************#
 #CREATE A SHOP
-@shop_routes.route('/', methods=['POST'])
+@shop_routes.route('/create_shop', methods=['POST'])
 @login_required
 def create_shop():
 
