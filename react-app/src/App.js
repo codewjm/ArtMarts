@@ -9,6 +9,8 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import AllShops from './components/Shops/AllShops';
+import CreateShopForm from './components/Shops/CreateShopForm';
+import SingleShop from './components/Shops/SingleShop';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -41,9 +43,16 @@ function App() {
         <Route path='/users/:userId' exact={true} >
           <User />
         </Route>
-        <Route path='/' exact={true} >
+        <Route path='/shops' exact={true} >
           <h1>My Home Page</h1>
           <AllShops />
+        </Route>
+        <Route path='/create-shop-form' exact={true} >
+          <h1>New Shop</h1>
+          <CreateShopForm />
+        </Route>
+        <Route path='/shops/:shopId'>
+          <SingleShop />
         </Route>
       </Switch>
     </BrowserRouter>

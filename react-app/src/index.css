@@ -6,3 +6,59 @@
 body{
   padding: 10px;
 }
+
+.form-outer-container {
+  display: flex;
+  justify-content: center;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  top: 25px;
+}
+
+.form-field-label {
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.form-field {
+  width: 500px;
+  height: 20px;
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid lightgrey;
+
+}
+
+.errorMessageContainer {
+  display: flex;
+  color: red;
+}
+
+.form-button {
+  background-color: #ff0000;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 4px;
+  height: 42px;
+  border: none;
+  cursor: pointer;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.form-header {
+  font-size: 24px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}

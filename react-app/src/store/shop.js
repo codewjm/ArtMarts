@@ -1,6 +1,5 @@
 // SHOP ACTIONS:
 const GET_ALL_SHOPS = 'shop/GET_ALL_SHOPS';
-const GET_ONE_SHOP = 'shop/GET_ONE_SHOP';
 const CREATE_SHOP = 'shop/CREATE_SHOP';
 const UPDATE_SHOP = 'shop/UPDATE_SHOP';
 const DELETE_SHOP = 'shop/DELETE_SHOP';
@@ -13,18 +12,41 @@ export const getAllShopsAC = (shops) => ({
   payload: shops,
 });
 
+export const createShopAc = (shop) => ({
+  type: CREATE_SHOP,
+  payload: shop,
+});
 
+export const updateShopAc = (shop) => ({
+  type: UPDATE_SHOP,
+  payload: shop,
+});
 
 //**************************************************************************************************
 // SHOP THUNKS:
 export const getAllShopsThunk = () => async (dispatch) => {
-  const res = await fetch('/api/shops');
+  const res = await fetch('/api/shops/');
   if (res.ok) {
     const shops = await res.json();
     dispatch(getAllShopsAC(shops));
+    return shops;
   }
 };
 
+export const createShopThunk = (shop) => async (dispatch) => {
+  const res = await fetch('/api/shops/create_shop', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(shop),
+  });
+  if (res.ok) {
+    const shop = await res.json();
+    dispatch(createShopAc(shop));
+    return shop;
+  }
+};
 
 //**************************************************************************************************
 // SHOP REDUCER:
@@ -37,6 +59,10 @@ const shopReducer = (state = initialState, action) => {
       action.payload.shops.forEach(shop => {
         newstate[shop.id] = shop;
       })
+      return newstate;
+    case CREATE_SHOP:
+      newstate = { ...state };
+      newstate[action.payload.id] = action.payload;
       return newstate;
     default:
       return state;
