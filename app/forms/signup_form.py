@@ -4,38 +4,38 @@ from wtforms.validators import DataRequired, Email, ValidationError
 from app.models import User
 
 
-def user_exists(field):
+def user_exists(form, field):
     # Checking if user exists
     email = field.data
     user = User.query.filter(User.email == email).first()
     if user:
         raise ValidationError('Email address is already in use.')
 
-def check_fname_length(field):
+def check_fname_length(form, field):
     if len(field.data)<2 or len(field.data)>50:
         raise ValidationError('must be between 2 and 50 characters.')
 
-def check_email_length(field):
+def check_email_length(form, field):
     if len(field.data)<2 or len(field.data)>50:
         raise ValidationError('email must be between 2 and 50 characters.')
 
-def check_email(field):
+def check_email(form, field):
     if "@" not in field.data:
         raise ValidationError('must be valid email address ( example@ex.com ).')
 
-def check_lname_length(field):
+def check_lname_length(form, field):
     if len(field.data)<2 or len(field.data)>50:
         raise ValidationError('must be between 2 and 50 characters.')
 
-def check_user_length(field):
+def check_user_length(form, field):
     if len(field.data)<2 or len(field.data)>50:
         raise ValidationError('must be between 2 and 50 characters.')
 
-def check_password_length(field):
+def check_password_length(form, field):
     if len(field.data)<6 or len(field.data)>50:
         raise ValidationError('must be between 6 and 50 characters.')
 
-def username_exists(field):
+def username_exists(form, field):
     # Checking if username is already in use
     username = field.data
     user = User.query.filter(User.username == username).first()
