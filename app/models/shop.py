@@ -1,13 +1,13 @@
 from .db import db
 
-class Shop(db.model):
+class Shop(db.Model):
   __tablename__ = 'shops'
 
-  id = db.column(db.integer, primary_key = True)
-  owner_id = db.column(db.integer, db.foreignkey('users.id'), nullable = False)
-  shop_name = db.column(db.string(50), nullable = False)
-  shop_description = db.column(db.string(255), nullable = False)
-  shop_img = db.column(db.string(500), nullable = False)
+  id = db.Column(db.Integer, primary_key = True)
+  owner_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)
+  shop_name = db.Column(db.String(50), nullable = False)
+  shop_description = db.Column(db.String(255), nullable = False)
+  shop_img = db.Column(db.String(500), nullable = False)
 
   owner = db.relationship('User', back_populates='shop_owner')
   shop_item = db.relationship('Item', back_populates='item', cascade='all, delete')
