@@ -44,7 +44,6 @@ def create_shop():
 @shop_routes.route('/<int:shop_id>', methods=['PUT'])
 @login_required
 def update_shop(shop_id):
-
       form = CreateShopForm()
 
       form["csrf_token"].data = request.cookies["csrf_token"]
