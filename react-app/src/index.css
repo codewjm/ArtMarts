@@ -1,1 +1,8 @@
 /* TODO Add site wide styles */
+#root {
+  font-family: 'georgia';
+}
+
+body{
+  padding: 10px;
+}
