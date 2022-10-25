@@ -9,9 +9,9 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(50), nullable=False)
     last_name = db.Column(db.String(50), nullable=False)
-    username = db.Column(db.String(40), nullable=False, unique=True)
-    email = db.Column(db.String(255), nullable=False, unique=True)
-    hashed_password = db.Column(db.String(255), nullable=False)
+    email = db.Column(db.String(50), nullable=False, unique=True)
+    username = db.Column(db.String(50), nullable=False, unique=True)
+    hashed_password = db.Column(db.String(50), nullable=False)
 
     review_author = db.relationship('Review', back_populates='author_review')
     shop_owner = db.relationship('Shop', back_populates='owner')
@@ -32,6 +32,6 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'first_name': self.first_name,
             'last_name': self.last_name,
-            'username': self.username,
-            'email': self.email
+            'email': self.email,
+            'username': self.username
         }

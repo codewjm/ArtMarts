@@ -7,7 +7,7 @@ class Shop(db.model):
   owner_id = db.column(db.integer, db.foreignkey('users.id'), nullable = False)
   shop_name = db.column(db.string(50), nullable = False)
   shop_description = db.column(db.string(255), nullable = False)
-  shop_img = db.column(db.string(255), nullable = False)
+  shop_img = db.column(db.string(500), nullable = False)
 
   owner = db.relationship('User', back_populates='shop_owner')
   shop_item = db.relationship('Item', back_populates='item', cascade='all, delete')
