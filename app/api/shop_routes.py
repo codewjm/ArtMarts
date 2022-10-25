@@ -3,6 +3,7 @@ from flask_login import login_required, current_user
 from app.models import Shop, db
 from ..forms.shop_form import CreateShopForm
 
+
 shop_routes = Blueprint('shops', __name__)
 
 
