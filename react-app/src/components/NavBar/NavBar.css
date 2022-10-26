@@ -72,6 +72,16 @@
   padding: 8px;
 }
 
+/* Logged in CSS below*/
+
+.shop-manager-drop-nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  width: 85px;
+}
+
 .drop-nav {
   position: relative;
   align-items: center;
@@ -132,12 +142,12 @@
   background-color: #eee;
 }
 
-.drop-nav-logout {
+.drop-nav-option {
   padding: 10px 20px;
   text-align: left;
 }
 
-.drop-nav-logout:hover {
+.drop-nav-option:hover {
   background-color: #eee;
   cursor: pointer;
 }

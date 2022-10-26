@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
@@ -15,6 +15,35 @@ const SignUpForm = () => {
   const dispatch = useDispatch();
   const [submitted, setSubmitted] = useState(false);
 
+  const emailRegX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
+
+  useEffect(() => {
+    let errors = [];
+
+    if (first_name.length < 2 || first_name.length > 50) {
+      errors.push("first name: must be between 2 and 50 characters.")
+    }
+    if (last_name.length < 2 || last_name.length > 50) {
+      errors.push("last name: must be between 2 and 50 characters.")
+    }
+    if (username.length < 2 || username.length > 50) {
+      errors.push("username: must be between 2 and 50 characters.")
+    }
+    if (!email.match(emailRegX)) {
+      errors.push("email: must be valid email address ( example@ex.com ).")
+    }
+    if (email.length < 2 || email.length > 50) {
+      errors.push("email: must be between 2 and 50 characters.")
+    }
+    if (password.length < 6 || password.length > 50) {
+      errors.push('password: must be between 6 and 50 characters.');
+    }
+    if (password !== repeatPassword) {
+      errors.push('password: passwords must match.');
+    }
+
+    setErrors(errors);
+  }, [first_name, last_name, email, username, password, repeatPassword]);
 
   const onSignUp = async (e) => {
     e.preventDefault();
