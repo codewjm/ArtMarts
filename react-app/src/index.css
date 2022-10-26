@@ -46,7 +46,7 @@ body {
 }
 
 .form-button {
-  background-color: #ff0000;
+  background-color: black;
   color: white;
   font-size: 16px;
   font-weight: 700;
@@ -57,6 +57,7 @@ body {
   cursor: pointer;
   margin-top: 12px;
   margin-bottom: 12px;
+  width: 100%;
 }
 
 .form-header {
@@ -70,4 +71,9 @@ body {
 .small-text {
   font-size: 13px;
   font-weight: 400;
+}
+
+.submit-button {
+  display: flex;
+  justify-content: center;
 }

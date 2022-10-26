@@ -73,7 +73,8 @@ const CreateShopForm = () => {
           </div>
           <div>
             <label htmlFor='Shop Name' className='form-field-label'>Shop Name</label>
-            <input className="form-field"
+            <input
+              className="form-field"
               name="Shop Name"
               type="text"
               value={shop_name}
@@ -84,7 +85,8 @@ const CreateShopForm = () => {
           </div>
           <div>
             <label htmlFor='Shop Description' className='form-field-label'>Shop Description</label>
-            <input className="form-field"
+            <input
+              className="form-field"
               name="Shop Description"
               type="text"
               value={shop_description}
@@ -95,7 +97,8 @@ const CreateShopForm = () => {
           </div>
           <div>
             <label htmlFor='Shop Image' className='form-field-label'>Shop Image</label>
-            <input className="form-field"
+            <input
+              className="form-field"
               name="Shop Image"
               type="text"
               value={shop_img}
@@ -104,8 +107,8 @@ const CreateShopForm = () => {
               required
             />
           </div>
-          <div className="create-shop-button">
-            <button name="submit" type="submit" className="form-button-create-shop">
+          <div>
+            <button name="submit" type="submit" className="form-button">
               Create Shop
             </button>
           </div>

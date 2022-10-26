@@ -9,9 +9,12 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const [submitted, setSubmitted] = useState(false);
+
 
   const onLogin = async (e) => {
     e.preventDefault();
+    setSubmitted(true);
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
@@ -31,34 +34,45 @@ const LoginForm = () => {
   }
 
   return (
-    <form onSubmit={onLogin}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
-      <div>
-        <label htmlFor='email'>Email</label>
-        <input
-          name='email'
-          type='text'
-          placeholder='Email'
-          value={email}
-          onChange={updateEmail}
-        />
-      </div>
-      <div>
-        <label htmlFor='password'>Password</label>
-        <input
-          name='password'
-          type='password'
-          placeholder='Password'
-          value={password}
-          onChange={updatePassword}
-        />
-        <button type='submit'>Sign in</button>
-      </div>
-    </form>
+    <div className="form-outer-container">
+      <form onSubmit={onLogin}>
+        <div className="form-container">
+          <div className="create_errors">
+            {submitted && (errors).map((error, i) => (
+              <div className="errorMessageContainer" key={i}>
+                <i className="fa-solid fa-exclamation exclamation-point"></i>
+                <div className="errorMessage">{error}</div>
+              </div>
+            ))}
+          </div>
+          <div>
+            <label htmlFor='email' className='form-field-label'>Email</label>
+            <input
+              className="form-field"
+              name='email'
+              type='text'
+              placeholder='Email'
+              value={email}
+              onChange={updateEmail}
+            />
+          </div>
+          <div>
+            <label htmlFor='password' className='form-field-label'>Password</label>
+            <input
+              className="form-field"
+              name='password'
+              type='password'
+              placeholder='Password'
+              value={password}
+              onChange={updatePassword}
+            />
+            <div>
+              <button type='submit' className="form-button">Sign in</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
   );
 };
 

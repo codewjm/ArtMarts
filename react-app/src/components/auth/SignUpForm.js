@@ -13,9 +13,13 @@ const SignUpForm = () => {
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const [submitted, setSubmitted] = useState(false);
+
 
   const onSignUp = async (e) => {
     e.preventDefault();
+    setSubmitted(true);
+
     if (password === repeatPassword) {
       const data = await dispatch(signUp(first_name, last_name, email, username, password));
       if (data) {
@@ -53,71 +57,84 @@ const SignUpForm = () => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
-      <div>
-        <label>First Name</label>
-        <input
-        type='text'
-        name='first_name'
-        onChange={updateFirstname}
-        value={first_name}
-        required
-        ></input>
-      </div>
-      <div>
-        <label>Last Name</label>
-        <input
-        type='text'
-        name='last_name'
-        onChange={updateLastname}
-        value={last_name}
-        required
-        ></input>
-      </div>
-      <div>
-        <label>User Name</label>
-        <input
-          type='text'
-          name='username'
-          onChange={updateUsername}
-          value={username}
-        ></input>
-      </div>
-      <div>
-        <label>Email</label>
-        <input
-          type='text'
-          name='email'
-          onChange={updateEmail}
-          value={email}
-        ></input>
-      </div>
-      <div>
-        <label>Password</label>
-        <input
-          type='password'
-          name='password'
-          onChange={updatePassword}
-          value={password}
-        ></input>
-      </div>
-      <div>
-        <label>Repeat Password</label>
-        <input
-          type='password'
-          name='repeat_password'
-          onChange={updateRepeatPassword}
-          value={repeatPassword}
-          required
-        ></input>
-      </div>
-      <button type='submit'>Sign Up</button>
-    </form>
+    <div className="form-outer-container">
+      <form onSubmit={onSignUp}>
+        <div className="form-container">
+          <div className="create_errors">
+            {submitted && (errors).map((error, i) => (
+              <div className="errorMessageContainer" key={i}>
+                <i className="fa-solid fa-exclamation exclamation-point"></i>
+                <div className="errorMessage">{error}</div>
+              </div>
+            ))}
+          </div>
+          <div>
+            <label className='form-field-label'>First Name</label>
+            <input
+              className="form-field"
+              type='text'
+              name='first_name'
+              onChange={updateFirstname}
+              value={first_name}
+              required
+            ></input>
+          </div>
+          <div>
+            <label className='form-field-label'>Last Name</label>
+            <input
+              className="form-field"
+              type='text'
+              name='last_name'
+              onChange={updateLastname}
+              value={last_name}
+              required
+            ></input>
+          </div>
+          <div>
+            <label className='form-field-label'>User Name</label>
+            <input
+              className="form-field"
+              type='text'
+              name='username'
+              onChange={updateUsername}
+              value={username}
+            ></input>
+          </div>
+          <div>
+            <label className='form-field-label'>Email</label>
+            <input
+              className="form-field"
+              type='text'
+              name='email'
+              onChange={updateEmail}
+              value={email}
+            ></input>
+          </div>
+          <div>
+            <label className='form-field-label'>Password</label>
+            <input
+              className="form-field"
+              type='password'
+              name='password'
+              onChange={updatePassword}
+              value={password}
+            ></input>
+          </div>
+          <div>
+            <label className='form-field-label'>Repeat Password</label>
+            <input
+              className="form-field"
+              type='password'
+              name='repeat_password'
+              onChange={updateRepeatPassword}
+              value={repeatPassword}
+              required
+            ></input>
+          </div>
+          <button type='submit' className="form-button">Sign Up</button>
+        </div>
+      </form>
+    </div>
   );
 };
 

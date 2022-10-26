@@ -17,7 +17,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
       setLoaded(true);
     })();
@@ -29,8 +29,11 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar loaded={loaded}/>
+      <NavBar loaded={loaded} />
       <Switch>
+        <Route path='/' exact={true} >
+          <h1>Items coming soon!</h1>
+        </Route>
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
@@ -38,17 +41,15 @@ function App() {
           <SignUpForm />
         </Route>
         <Route path='/users' exact={true} >
-          <UsersList/>
+          <UsersList />
         </Route>
         <Route path='/users/:userId' exact={true} >
           <User />
         </Route>
         <Route path='/shops' exact={true} >
-          <h1>My Home Page</h1>
           <AllShops />
         </Route>
         <Route path='/create-shop-form' exact={true} >
-          <h1>New Shop</h1>
           <CreateShopForm />
         </Route>
         <Route path='/shops/:shopId'>
