@@ -87,6 +87,7 @@
   align-items: center;
   /* background-color: transparent; */
   padding: 8px;
+  z-index: 10;
 }
 
 .drop-nav:hover {

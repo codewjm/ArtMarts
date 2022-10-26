@@ -11,6 +11,7 @@ const NavBar = () => {
   const dispatch = useDispatch()
   const sessionUser = useSelector(state => state.session.user)
   const history = useHistory()
+  
 
 
 
@@ -30,7 +31,7 @@ const NavBar = () => {
           <>
             <div className="shop-manager-drop-nav-container">
               <div className="drop-nav-button" onClick={() => history.push('/create-shop-form')}>
-                <i class="fa-sharp fa-solid fa-store" />
+                <i className="fa-sharp fa-solid fa-store" />
               </div>
               <div>
                 <DropNav />
