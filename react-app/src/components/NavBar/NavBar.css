@@ -3,19 +3,19 @@
   border-bottom: 2px solid rgb(220, 220, 220);
   background-color: white;
   top: 0px;
-  margin-bottom: 15px;
 }
 
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 15px;
-  margin-bottom: 15px;
+  /* margin-top: 15px; */
+  /* margin-bottom: 15px; */
   margin-left: auto;
   margin-right: auto;
-  max-width: 1320px;;
-  top: 0px;
+  max-width: 1325px;
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
 }
 
 
@@ -37,34 +37,53 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: transparent;
+  width: 150px;
 }
 
 .sign-in-button {
   display: flex;
-  position: relative;
-  margin-right: 25px;
+  /* position: absolute; */
+  background-color: transparent;
   cursor: pointer;
+  padding: 8px;
 }
 
 .sign-in-button:hover {
-    border: 1px solid #e2e2e2;
     border-radius: 300px;
-    width: 50px;
+    background-color: lightgray;
     transition-duration: 300ms;
-    background-color: #eee;
-    padding: 6px;
+    padding: 8px;
 
 }
 
 .sign-up-button {
   display: flex;
+  /* position: absolute; */
+  background-color: transparent;
   cursor: pointer;
+  padding: 8px;
+}
+
+.sign-up-button:hover {
+  border-radius: 300px;
+  background-color: lightgray;
+  transition-duration: 300ms;
+  padding: 8px;
 }
 
 .drop-nav {
   position: relative;
-  min-width: 80px;
   align-items: center;
+  /* background-color: transparent; */
+  padding: 8px;
+}
+
+.drop-nav:hover {
+  border-radius: 300px;
+  background-color: lightgray;
+  transition-duration: 300ms;
+  padding: 8px;
 }
 
 .drop-nav i.fa-user-circle {
@@ -75,8 +94,9 @@
 }
 
 .drop-nav-button {
-  /* display: flex; */
+  display: flex;
   cursor: pointer;
+  /* background-color: transparent; */
 }
 
 .dropnav-button:hover {
