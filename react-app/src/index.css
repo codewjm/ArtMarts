@@ -41,6 +41,10 @@ body{
   color: red;
 }
 
+body {
+  margin: 0;
+}
+
 .form-button {
   background-color: #ff0000;
   color: white;
@@ -61,4 +65,9 @@ body{
   display: flex;
   justify-content: center;
   margin-top: 12px;
+}
+
+.small-text {
+  font-size: 13px;
+  font-weight: 400;
 }
