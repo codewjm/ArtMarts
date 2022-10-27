@@ -3,7 +3,6 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import DropNav from './DropNav';
-import CreateShopForm from '../Shops/CreateShopForm';
 import './NavBar.css';
 
 const NavBar = () => {
@@ -11,7 +10,7 @@ const NavBar = () => {
   const dispatch = useDispatch()
   const sessionUser = useSelector(state => state.session.user)
   const history = useHistory()
-  
+
 
 
 
@@ -30,7 +29,7 @@ const NavBar = () => {
         {sessionUser && (
           <>
             <div className="shop-manager-drop-nav-container">
-              <div className="drop-nav-button" onClick={() => history.push('/create-shop-form')}>
+              <div className="drop-nav-button" onClick={() => history.push('/user-shops')}>
                 <i className="fa-sharp fa-solid fa-store" />
               </div>
               <div>

@@ -14,17 +14,16 @@ export const getAllUsersThunk = () => async (dispatch) => {
   if (res.ok) {
     const users = await res.json()
     dispatch(getAllUsers(users))
-  //console.log("users*****", users)
+  console.log("users*****", users)
     return users
   }
 }
 
 const initialState = {}
 const userReducer = (state = initialState, action) => {
-  let newState;
+  let newState = { ...state }
   switch (action.type) {
     case GET_ALL_USERS:
-      newState = { ...state}
       action.payload.users.forEach(user => {
         newState[user.id] = user
         })

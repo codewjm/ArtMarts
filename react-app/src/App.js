@@ -11,6 +11,7 @@ import { authenticate } from './store/session';
 import AllShops from './components/Shops/AllShops';
 import CreateShopForm from './components/Shops/CreateShopForm';
 import SingleShop from './components/Shops/SingleShop';
+import UserShops from './components/Shops/UserShops';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -48,6 +49,9 @@ function App() {
         </Route>
         <Route path='/shops' exact={true} >
           <AllShops />
+        </Route>
+        <Route path='/user-shops'>
+          <UserShops />
         </Route>
         <Route path='/create-shop-form' exact={true} >
           <CreateShopForm />
