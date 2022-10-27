@@ -82,3 +82,15 @@ body {
   display: flex;
   justify-content: center;
 }
+
+
+/* Shops CSS */
+
+.shop-card-img {
+  width: 200px;
+  height: 210px;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 2px solid rgb(215, 213, 213);
+  border-radius: 5px;
+}
