@@ -12,14 +12,19 @@ export const getAllShopsAC = (shops) => ({
   payload: shops,
 });
 
-export const createShopAc = (shop) => ({
+export const createShopAC = (shop) => ({
   type: CREATE_SHOP,
   payload: shop,
 });
 
-export const updateShopAc = (shop) => ({
+export const updateShopAC = (shop) => ({
   type: UPDATE_SHOP,
   payload: shop,
+});
+
+export const deleteShopAC = (shopId) => ({
+  type: DELETE_SHOP,
+  payload: shopId,
 });
 
 //**************************************************************************************************
@@ -43,8 +48,30 @@ export const createShopThunk = (shop) => async (dispatch) => {
   });
   if (res.ok) {
     const shop = await res.json();
-    dispatch(createShopAc(shop));
+    dispatch(createShopAC(shop));
     return shop;
+  }
+};
+
+export const updateShopThunk = (shop, shopId) => async (dispatch) => {
+  const res = await fetch(`/api/shops/${shopId}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(shop),
+  });
+  if (res.ok) {
+    const shop = await res.json();
+    dispatch(updateShopAC(shop));
+    return shop;
+  }
+};
+
+export const deleteShopThunk = (shopId) => async (dispatch) => {
+  const res = await fetch(`/api/shops/${shopId}`, {
+    method: 'DELETE',
+  });
+  if (res.ok) {
+    dispatch(deleteShopAC(shopId));
   }
 };
 
@@ -63,6 +90,14 @@ const shopReducer = (state = initialState, action) => {
     case CREATE_SHOP:
       newState = { ...state };
       newState[action.payload.id] = action.payload;
+      return newState;
+    case UPDATE_SHOP:
+      newState = { ...state };
+      newState[action.payload.id] = action.payload;
+      return newState;
+    case DELETE_SHOP:
+      newState = { ...state };
+      delete newState[action.payload];
       return newState;
     default:
       return state;
