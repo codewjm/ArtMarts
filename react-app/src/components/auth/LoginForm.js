@@ -69,6 +69,8 @@ const LoginForm = () => {
             />
             <div>
               <button type='submit' className="form-button">Sign in</button>
+              <button type='submit' className="form-button"
+                onClick={() => { setEmail('demo@aa.io'); setPassword("password") }}>Demo Sign In</button>
             </div>
           </div>
         </div>
