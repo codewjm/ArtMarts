@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllShopsThunk } from '../../store/shop'
+import { getAllUsersThunk } from '../../store/user'
 import ShopsCard from '../ShopCard'
+
 
 const AllShops = () => {
     const dispatch = useDispatch()
@@ -9,6 +11,7 @@ const AllShops = () => {
 
     useEffect(() => {
         dispatch(getAllShopsThunk())
+        dispatch(getAllUsersThunk())
     }, [dispatch])
 
 

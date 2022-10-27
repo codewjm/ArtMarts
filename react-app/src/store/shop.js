@@ -52,18 +52,18 @@ export const createShopThunk = (shop) => async (dispatch) => {
 // SHOP REDUCER:
 const initialState = {};
 const shopReducer = (state = initialState, action) => {
-  let newstate;
+  let newState;
   switch (action.type) {
     case GET_ALL_SHOPS:
-      newstate = {}
+      newState = {}
       action.payload.shops.forEach(shop => {
-        newstate[shop.id] = shop;
+        newState[shop.id] = shop;
       })
-      return newstate;
+      return newState;
     case CREATE_SHOP:
-      newstate = { ...state };
-      newstate[action.payload.id] = action.payload;
-      return newstate;
+      newState = { ...state };
+      newState[action.payload.id] = action.payload;
+      return newState;
     default:
       return state;
   }
