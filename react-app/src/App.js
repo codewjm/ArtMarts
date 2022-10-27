@@ -10,6 +10,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import AllShops from './components/Shops/AllShops';
 import CreateShopForm from './components/Shops/CreateShopForm';
+import UpdateShopForm from './components/Shops/UpdateShopForm';
 import SingleShop from './components/Shops/SingleShop';
 import UserShops from './components/Shops/UserShops';
 
@@ -55,6 +56,9 @@ function App() {
         </Route>
         <Route path='/create-shop-form' exact={true} >
           <CreateShopForm />
+        </Route>
+        <Route path='/shops/:shopId/update' >
+          <UpdateShopForm />
         </Route>
         <Route path='/shops/:shopId'>
           <SingleShop />
