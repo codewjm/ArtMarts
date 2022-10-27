@@ -52,11 +52,10 @@ const UpdateShopForm = () => {
       shop_description: shop_description,
       shop_img: shop_img,
     };
-    return await dispatch(updateShopThunk(shopData, shopId))
-    .then(() => dispatch(getAllShopsThunk()))
-    .then(() => history.push(`/shops/${shopId}`))
-
-  }
+    return dispatch(updateShopThunk(shopData, shopId.shopId))
+    .then(dispatch(getAllShopsThunk()))
+    .then(history.push(`/shops/${shopId.shopId}`))
+  };
 
   console.log("shopId", shopId)
   return (

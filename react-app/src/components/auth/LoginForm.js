@@ -40,7 +40,6 @@ const LoginForm = () => {
           <div className="create_errors">
             {submitted && (errors).map((error, i) => (
               <div className="errorMessageContainer" key={i}>
-                <i className="fa-solid fa-exclamation exclamation-point"></i>
                 <div className="errorMessage">{error}</div>
               </div>
             ))}
@@ -54,6 +53,7 @@ const LoginForm = () => {
               placeholder='Email'
               value={email}
               onChange={updateEmail}
+              required
             />
           </div>
           <div>
@@ -65,6 +65,7 @@ const LoginForm = () => {
               placeholder='Password'
               value={password}
               onChange={updatePassword}
+              required
             />
             <div>
               <button type='submit' className="form-button">Sign in</button>

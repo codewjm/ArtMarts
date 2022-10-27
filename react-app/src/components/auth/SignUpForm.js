@@ -21,25 +21,25 @@ const SignUpForm = () => {
     let errors = [];
 
     if (first_name.length < 2 || first_name.length > 50) {
-      errors.push("first name: must be between 2 and 50 characters.")
+      errors.push("First name must be between 2 and 50 characters")
     }
     if (last_name.length < 2 || last_name.length > 50) {
-      errors.push("last name: must be between 2 and 50 characters.")
-    }
-    if (username.length < 2 || username.length > 50) {
-      errors.push("username: must be between 2 and 50 characters.")
+      errors.push("Last name must be between 2 and 50 characters")
     }
     if (!email.match(emailRegX)) {
-      errors.push("email: must be valid email address ( example@ex.com ).")
+      errors.push("Email must be valid email address ( example@ex.com )")
+    }
+    if (username.length < 2 || username.length > 50) {
+      errors.push("Username must be between 2 and 50 characters")
     }
     if (email.length < 2 || email.length > 50) {
-      errors.push("email: must be between 2 and 50 characters.")
+      errors.push("Email must be between 2 and 50 characters")
     }
     if (password.length < 6 || password.length > 50) {
-      errors.push('password: must be between 6 and 50 characters.');
+      errors.push('Password must be between 6 and 50 characters');
     }
     if (password !== repeatPassword) {
-      errors.push('password: passwords must match.');
+      errors.push('Passwords must match');
     }
 
     setErrors(errors);
@@ -92,7 +92,6 @@ const SignUpForm = () => {
           <div className="create_errors">
             {submitted && (errors).map((error, i) => (
               <div className="errorMessageContainer" key={i}>
-                <i className="fa-solid fa-exclamation exclamation-point"></i>
                 <div className="errorMessage">{error}</div>
               </div>
             ))}

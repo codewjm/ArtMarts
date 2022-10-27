@@ -59,6 +59,7 @@ export const updateShopThunk = (shop, shopId) => async (dispatch) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(shop),
   });
+  console.log("UPDATE RESPONSE ", res)
   if (res.ok) {
     const shop = await res.json();
     dispatch(updateShopAC(shop));
