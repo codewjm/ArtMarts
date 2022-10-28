@@ -52,12 +52,12 @@ const SingleShop = () => {
     history.push(`/shops/${shopId}/create-item-form`);
   };
 
-  console.log("allitems", allItems);
-  console.log("itemsArray", itemsArray);
-  console.log("shop", shop);
-  console.log("allshops", allShops);
-  console.log("shopId", shopId);
-  console.log("shop.id", shop?.id);
+  // console.log("allitems", allItems);
+  // console.log("itemsArray", itemsArray);
+  // console.log("shop", shop);
+  // console.log("allshops", allShops);
+  // console.log("shopId", shopId);
+  // console.log("shop.id", shop?.id);
 
   return loaded && (
     <div>

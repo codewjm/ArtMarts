@@ -3,13 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { createItemThunk, getAllItemsThunk } from "../../store/item";
 import { getAllShopsThunk } from "../../store/shop";
+import { getAllUsersThunk } from "../../store/user";
 
 
 const CreateItemForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const user = useSelector((state) => state.session.user);
-  const shopId = useParams();
+  const { shopId }= useParams();
 
 
   const [item_name, setItem_Name] = useState("");
@@ -32,10 +33,10 @@ const CreateItemForm = () => {
     else {
 
       if (item_name.length < 2 || item_name.length > 50) {
-        errors.push("Item name: must be between 2 and 50 characters.")
+        errors.push("Item name must be between 2 and 50 characters.")
       }
       if (item_description.length < 2 || item_description.length > 255) {
-        errors.push("Item name: must be between 2 and 255 characters.")
+        errors.push("Item description must be between 2 and 255 characters.")
       }
       if (item_img.length < 2 || !item_img.split('?')[0].match(imageRegX)) {
         errors.push("image: must be a valid type: jpg, jpeg, png, svg.")
@@ -56,14 +57,14 @@ const CreateItemForm = () => {
       item_price: item_price,
       item_description: item_description,
       item_img: item_img,
-      shop_id: Number(shopId?.shopId)
+      shop_id: Number(shopId)
     };
     return await dispatch(createItemThunk(itemData))
     .then(history.push(`/shops/1`))
   }
 
   console.log("shopId", shopId);
-  console.log("shop_id with number", Number(shopId.shopId));
+  console.log("shop_id with number", Number(shopId));
   return (
     <div className="form-outer-container">
       <form onSubmit={handleSubmit}>
@@ -72,7 +73,6 @@ const CreateItemForm = () => {
           <div className="create_errors">
             {submitted && (errors).map((error, i) => (
               <div className="errorMessageContainer" key={i}>
-                <i className="fa-solid fa-exclamation exclamation-point"></i>
                 <div className="errorMessage">{error}</div>
               </div>
             ))}

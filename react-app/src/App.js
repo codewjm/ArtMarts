@@ -32,7 +32,7 @@ function App() {
   //   return null;
   // }
 
-  return (
+  return loaded && (
     <BrowserRouter>
       <NavBar loaded={loaded} />
       <Switch>
