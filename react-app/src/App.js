@@ -57,23 +57,23 @@ function App() {
         <Route path='/items' exact={true}>
           <AllItems />
         </Route>
-        <Route path='/user-shops'>
+        <Route path='/user-shops' exact={true}>
           <UserShops />
         </Route>
         <Route path='/create-shop-form' exact={true} >
           <CreateShopForm />
         </Route>
-        <Route path='/shops/:shopId/update' >
+        <Route path='/shops/:shopId/update' exact={true}>
           <UpdateShopForm />
         </Route>
-        <Route path='/shops/:shopId'>
+        <Route path='/shops/:shopId/create-item-form' exact={true}>
+          <CreateItemForm />
+        </Route>
+        <Route path='/shops/:shopId' exact={true}>
           <SingleShop />
         </Route>
-        <Route path='/items/:itemId'>
+        <Route path='/items/:itemId' exact={true}>
           <SingleItem />
-        </Route>
-        <Route path='/create-item-form' exact={true}>
-          <CreateItemForm />
         </Route>
       </Switch>
     </BrowserRouter>

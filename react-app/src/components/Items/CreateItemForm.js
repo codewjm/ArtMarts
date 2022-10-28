@@ -16,7 +16,7 @@ const CreateItemForm = () => {
   const [item_price, setItem_Price] = useState("");
   const [item_description, setItem_Description] = useState("");
   const [item_img, setItem_Img] = useState("");
-  const [shop_id, setShop_Id] = useState("");
+  // const [shop_id, setShop_Id] = useState("");
   const [errors, setErrors] = useState([]);
   const [submitted, setSubmitted] = useState(false);
 
@@ -56,12 +56,14 @@ const CreateItemForm = () => {
       item_price: item_price,
       item_description: item_description,
       item_img: item_img,
-      shop_id: Number(shopId.shopId)
+      shop_id: Number(shopId?.shopId)
     };
     return await dispatch(createItemThunk(itemData))
-    .then((res) => history.push(`/items/${res.id}`))
+    .then(history.push(`/shops/1`))
   }
 
+  console.log("shopId", shopId);
+  console.log("shop_id with number", Number(shopId.shopId));
   return (
     <div className="form-outer-container">
       <form onSubmit={handleSubmit}>

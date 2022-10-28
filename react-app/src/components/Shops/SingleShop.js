@@ -20,10 +20,10 @@ const SingleShop = () => {
 
   //items
   const allItems = useSelector((state) => state.items);
-  const itemsArray = Object.values(allItems).filter((item) => item.shop_id === shop.id);
+  const itemsArray = Object.values(allItems).filter((item) => item?.shop_id === shop?.id);
 
-  // console.log("allitems", allItems);
-  // console.log("items", itemsArray);
+  console.log("allitems", allItems);
+  console.log("itemsArray", itemsArray);
 
 
   useEffect(() => {
@@ -47,15 +47,17 @@ const SingleShop = () => {
     history.push(`/shops/${shopId}/update`);
   };
 
-  const addItem = () => async (e) => {
+  const addItem = (shopId) => async (e) => {
     e.preventDefault();
-    history.push(`/create-item-form`);
+    history.push(`/shops/${shopId}/create-item-form`);
   };
 
+  console.log("allitems", allItems);
+  console.log("itemsArray", itemsArray);
   console.log("shop", shop);
   console.log("allshops", allShops);
   console.log("shopId", shopId);
-  console.log("shop.id", shop.id);
+  console.log("shop.id", shop?.id);
 
   return loaded && (
     <div>
@@ -75,11 +77,11 @@ const SingleShop = () => {
         <div onClick={removeShop(shop?.id)}>Remove Shop</div>
       )}
       </div>
-      {/* <div>
+      <div>
         {(user?.id === shop?.owner_id) && (
           <div onClick={addItem(shop?.id)}>Add Item</div>
-        )}
-      </div> */}
+       )}
+      </div>
       <div>
         {itemsArray.map((item) => (
           <ItemCard key={item.id} item={item} />
