@@ -51,17 +51,17 @@ def create_item():
 
       if form.validate_on_submit():
 
-        itemData = Item(
+        item_data = Item(
           item_name = form.data["item_name"],
           item_price = form.data["item_price"],
           item_description = form.data["item_description"],
           item_img = form.data["item_img"],
           shop_id = form.data["shop_id"]
-        )
+          )
 
-        db.session.add(itemData)
+        db.session.add(item_data)
         db.session.commit()
-        return jsonify(itemData.to_dict()), 200
+        return jsonify(item_data.to_dict()), 200
       else:
         return {'errors': form.errors}, 401
 

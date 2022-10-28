@@ -1,25 +1,39 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { createItemThunk, getAllItemsThunk } from "../../store/item";
-import { getAllShopsThunk } from "../../store/shop";
+import { getAllItemsThunk, createItemThunk } from "../../store/item";
 import { getAllUsersThunk } from "../../store/user";
 
-
-const CreateItemForm = () => {
+const UpdateItemForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const user = useSelector((state) => state.session.user);
-  const { shopId }= useParams();
-
+  const { itemId }= useParams();
+  const item = useSelector((state) => state.items[itemId]);
 
   const [item_name, setItem_Name] = useState("");
   const [item_price, setItem_Price] = useState("");
   const [item_description, setItem_Description] = useState("");
   const [item_img, setItem_Img] = useState("");
-  // const [shop_id, setShop_Id] = useState("");
-  const [errors, setErrors] = useState([]);
+  const [shop_id, setShop_Id] = useState("");
+  const [errors, setErrors] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    dispatch(getAllItemsThunk()).then(dispatch(getAllUsersThunk()))
+  }, [dispatch]);
+
+  useEffect(() => {
+    if(item) {
+      setLoaded(true)
+      setItem_Name(item.item_name)
+      setItem_Price(item.item_price)
+      setItem_Description(item.item_description)
+      setItem_Img(item.item_img)
+      setShop_Id(item.shop_id)
+    }
+  }, [item]);
 
   const imageRegX = /\.(jpeg|jpg|png|svg)$/
 
@@ -27,7 +41,7 @@ const CreateItemForm = () => {
     let errors = [];
 
     if (!user) {
-      errors.push("You must be logged in to create an item");
+      errors.push("You must be logged in to update an item");
       setErrors(errors);
     }
     else {
@@ -46,6 +60,7 @@ const CreateItemForm = () => {
     }
   }, [item_name, item_description, item_img, user]);
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitted(true);
@@ -57,15 +72,15 @@ const CreateItemForm = () => {
       item_price: item_price,
       item_description: item_description,
       item_img: item_img,
-      shop_id: Number(shopId)
+      shop_id: shop_id
     };
     return await dispatch(createItemThunk(itemData))
-    .then(history.push(`/shops/${shopId}`))
+    .then(history.push(`/items/${itemId}`))
   }
 
-  // console.log("shopId", shopId);
-  // console.log("shop_id with number", Number(shopId));
-  return (
+
+
+  return loaded && (
     <div className="form-outer-container">
       <form onSubmit={handleSubmit}>
         <div className="form-header">Please Fill Out The Following Fields:</div>
@@ -127,7 +142,7 @@ const CreateItemForm = () => {
           </div>
           <div>
             <button name="submit" type="submit" className="form-button">
-              Add an Item
+              Update Item
             </button>
           </div>
         </div>
@@ -137,4 +152,4 @@ const CreateItemForm = () => {
 
 }
 
-export default CreateItemForm;
+export default UpdateItemForm;

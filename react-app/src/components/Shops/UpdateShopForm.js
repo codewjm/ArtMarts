@@ -21,7 +21,7 @@ const UpdateShopForm = () => {
 
   useEffect(() => {
     dispatch(getAllShopsThunk()).then(dispatch(getAllUsersThunk()))
-  }, [dispatch])
+  }, [dispatch]);
 
   useEffect(() => {
     if(shop) {
@@ -30,10 +30,10 @@ const UpdateShopForm = () => {
       setShop_Description(shop.shop_description)
       setShop_Img(shop.shop_img)
     }
-  }, [shop])
+  }, [shop]);
 
 
-  console.log("shop", shop)
+  // console.log("shop", shop)
   // console.log("allshops UPshop**", allShops)
 
   const imageRegX = /\.(jpeg|jpg|png|svg)$/
