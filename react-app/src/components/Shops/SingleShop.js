@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { getAllShopsThunk, deleteShopThunk, updateShopThunk } from "../../store/shop";
-
+import ItemCard from "../../ItemCard";
+import { getAllItemsThunk } from "../../store/item";
 
 const SingleShop = () => {
   const dispatch = useDispatch();
@@ -16,17 +17,20 @@ const SingleShop = () => {
   const allShops = useSelector((state) => state.shops);
   const shop = allShops[shopId.shopId];
 
+  //items
+  const allItems = useSelector((state) => state.items);
+  const itemsArray = Object.values(allItems).filter((item) => item.shop_id === shop.id);
 
+  // console.log("allitems", allItems);
+  // console.log("items", itemsArray);
 
-  // console.log("shopId", shopId.shopId);
-  // console.log("shop", shop);
-  // console.log("allShops", allShops);
 
   useEffect(() => {
 
     (async () => {
       await dispatch(getAllShopsThunk())
       await setLoaded(true);
+      await dispatch(getAllItemsThunk())
     })();
   }, []);
 
@@ -59,6 +63,11 @@ const SingleShop = () => {
       {(user?.id === shop?.owner_id) && (
         <div onClick={removeShop(shop?.id)}>Remove Shop</div>
       )}
+      </div>
+      <div>
+        {itemsArray.map((item) => (
+          <ItemCard key={item.id} item={item} />
+        ))}
       </div>
     </div>
   );
