@@ -46,7 +46,7 @@ const SingleShop = () => {
     <div>
       <div onClick={() => history.push(`/shops/${shop?.id}`)}>
         <h1>SingleShop</h1>
-        <div><img className="shop-card-img"  src={shop?.shop_img} alt="Shop Image"></img></div>
+        <div><img className="shop-page-img"  src={shop?.shop_img} alt="Shop Image"></img></div>
         <div>{shop?.shop_name}</div>
         <div>{shop?.shop_description}</div>
       </div>
