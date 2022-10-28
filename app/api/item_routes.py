@@ -27,6 +27,7 @@ def update_item(item_id):
 
           item = Item.query.get(item_id)
 
+          item.owner_id = current_user.id
           item.item_name = form.data["item_name"]
           item.item_price = form.data["item_price"]
           item.item_description = form.data["item_description"]
@@ -52,6 +53,7 @@ def create_item():
       if form.validate_on_submit():
 
         item_data = Item(
+          owner_id = current_user.id,
           item_name = form.data["item_name"],
           item_price = form.data["item_price"],
           item_description = form.data["item_description"],

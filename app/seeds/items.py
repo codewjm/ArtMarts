@@ -2,6 +2,7 @@ from app.models import db, Item
 
 def seed_items():
   item_one = Item(
+    owner_id=1,
     item_name="Paint Brush",
     item_price="20.00",
     item_description="Paint brush Description",
@@ -9,6 +10,7 @@ def seed_items():
     shop_id=1
   )
   item_two = Item(
+    owner_id=2,
     item_name="Canvas",
     item_price="11.00",
     item_description="Canvas Description",
@@ -16,6 +18,7 @@ def seed_items():
     shop_id=2
   )
   item_three = Item(
+    owner_id=3,
     item_name="Paint",
     item_price="25.00",
     item_description="Paint knife description",

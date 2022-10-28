@@ -53,6 +53,7 @@ const CreateItemForm = () => {
     if (errors.length) return
 
     const itemData = {
+      owner_id: user.id,
       item_name: item_name,
       item_price: item_price,
       item_description: item_description,

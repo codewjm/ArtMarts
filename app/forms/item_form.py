@@ -4,6 +4,7 @@ from wtforms.validators import DataRequired, Email, ValidationError
 
 
 class CreateItemForm(FlaskForm):
+  owner_id = IntegerField('Owner Id', validators=[DataRequired()])
   item_name = StringField('Name', validators=[DataRequired()])
   item_price = StringField('Price', validators=[DataRequired()])
   item_description = StringField('Description', validators=[DataRequired()])

@@ -15,7 +15,7 @@ const SingleItem = () => {
   const [loaded, setLoaded] = useState(false);
 
   const user = useSelector((state) => state.session.user);
-  const allShops = useSelector((state) => state.shops);
+  // const allShops = useSelector((state) => state.shops);
 
   useEffect(() => {
     dispatch(getAllItemsThunk()).then(dispatch(getAllUsersThunk()))
@@ -27,18 +27,20 @@ const SingleItem = () => {
   const item = allItems[itemId.itemId];
   const itemShop = item?.shop_id;
 
-  const shop = Object.values(allShops).filter((shop) => shop?.id === itemShop);
-  const shopOwnerId = shop[0]?.owner_id;
-  const shopId = shop[0]?.id;
 
-  console.log("allShops", allShops)
-  console.log("all items", allItems)
-  console.log("item", item);
-  console.log("items shop_id", itemShop);
-  console.log("shop", shop);
-  console.log("shop owner id", shopOwnerId);
-  console.log("user id", user?.id);
-  console.log("shop id", shopId);
+  // if(!item) history.push("/user-shops");
+  // const shop = Object.values(allShops).filter((shop) => shop?.id === itemShop);
+  // const shopOwnerId = shop[0]?.owner_id;
+  // const shopId = shop[0]?.id;
+
+  // console.log("allShops", allShops)
+  // console.log("all items", allItems)
+  // console.log("item", item);
+  // console.log("items shop_id", itemShop);
+  // console.log("shop", shop);
+  // console.log("shop owner id", shopOwnerId);
+  // console.log("user id", user?.id);
+  // console.log("shop id", shopId);
 
   useEffect(() => {
     (async () => {
@@ -52,7 +54,7 @@ const SingleItem = () => {
   const removeItem = (itemId) => async (e) => {
     e.preventDefault();
     dispatch(deleteItemThunk(itemId))
-    history.push(`/shops/${shopId}`)
+    history.push(`/shops/${itemShop}`)
   }
 
 
@@ -64,7 +66,7 @@ const SingleItem = () => {
       <div>${item?.item_price}</div>
       <div>{item?.item_description}</div>
       <div>
-        {(user?.id === shopOwnerId) && (
+        {(user?.id === item?.owner_id) && (
           <div onClick={removeItem(item?.id)} >Remove Item</div>
         )}
       </div>

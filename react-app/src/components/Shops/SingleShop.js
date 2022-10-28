@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { Redirect, useHistory, useParams } from "react-router-dom";
 import { getAllShopsThunk, deleteShopThunk, updateShopThunk } from "../../store/shop";
 import ItemCard from "../../ItemCard";
 import { getAllItemsThunk } from "../../store/item";
@@ -58,6 +58,8 @@ const SingleShop = () => {
   // console.log("allshops", allShops);
   // console.log("shopId", shopId);
   // console.log("shop.id", shop?.id);
+
+  if(!shop) <Redirect to="/user-shops" />
 
   return loaded && (
     <div>
