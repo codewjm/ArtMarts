@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { useHistory, useParams } from "react-router-dom";
+import { Redirect, useHistory, useParams } from "react-router-dom";
 import { getAllItemsThunk } from "../../store/item";
 import { getAllShopsThunk } from "../../store/shop";
 import { deleteItemThunk } from "../../store/item";
@@ -17,11 +17,12 @@ const SingleItem = () => {
   const user = useSelector((state) => state.session.user);
   const allShops = useSelector((state) => state.shops);
 
+
+
   useEffect(() => {
     dispatch(getAllItemsThunk()).then(dispatch(getAllUsersThunk()))
     .then(dispatch(getAllShopsThunk()))
   }, [dispatch]);
-
 
   const allItems = useSelector((state) => state.items);
   const item = allItems[itemId.itemId];
@@ -48,6 +49,7 @@ const SingleItem = () => {
     })()
   }, [dispatch])
 
+  if(!item) return <Redirect to="/user-shops" />
 
   const removeItem = (itemId) => async (e) => {
     e.preventDefault();
