@@ -46,7 +46,9 @@ export const createItemThunk = (item) => async (dispatch) => {
     headers: { 'Content-Type': 'application/json'},
     body: JSON.stringify(item),
   });
+  console.log("res", res)
   if (res.ok) {
+
     const item = await res.json();
     dispatch(createItemAC(item));
     return item;

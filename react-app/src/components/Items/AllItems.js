@@ -10,7 +10,7 @@ const AllItems = () => {
   const dispatch = useDispatch();
   const allItems = useSelector((state) => state.items);
 
-  console.log("all items", allItems)
+  // console.log("all items", allItems)
   useEffect(() => {
     dispatch(getAllItemsThunk())
     dispatch(getAllShopsThunk())

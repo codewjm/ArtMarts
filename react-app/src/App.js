@@ -14,6 +14,8 @@ import UpdateShopForm from './components/Shops/UpdateShopForm';
 import SingleShop from './components/Shops/SingleShop';
 import UserShops from './components/Shops/UserShops';
 import AllItems from './components/Items/AllItems';
+import SingleItem from './components/Items/SingleItem';
+import CreateItemForm from './components/Items/CreateItemForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -66,6 +68,12 @@ function App() {
         </Route>
         <Route path='/shops/:shopId'>
           <SingleShop />
+        </Route>
+        <Route path='/items/:itemId'>
+          <SingleItem />
+        </Route>
+        <Route path='/create-item-form' exact={true}>
+          <CreateItemForm />
         </Route>
       </Switch>
     </BrowserRouter>

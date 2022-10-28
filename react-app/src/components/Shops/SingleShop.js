@@ -4,6 +4,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { getAllShopsThunk, deleteShopThunk, updateShopThunk } from "../../store/shop";
 import ItemCard from "../../ItemCard";
 import { getAllItemsThunk } from "../../store/item";
+import CreateItemForm from "../Items/CreateItemForm";
 
 const SingleShop = () => {
   const dispatch = useDispatch();
@@ -28,9 +29,9 @@ const SingleShop = () => {
   useEffect(() => {
 
     (async () => {
-      await dispatch(getAllShopsThunk())
-      await setLoaded(true);
-      await dispatch(getAllItemsThunk())
+      dispatch(getAllShopsThunk())
+      dispatch(getAllItemsThunk())
+      setLoaded(true);
     })();
   }, []);
 
@@ -45,6 +46,16 @@ const SingleShop = () => {
     e.preventDefault();
     history.push(`/shops/${shopId}/update`);
   };
+
+  const addItem = () => async (e) => {
+    e.preventDefault();
+    history.push(`/create-item-form`);
+  };
+
+  console.log("shop", shop);
+  console.log("allshops", allShops);
+  console.log("shopId", shopId);
+  console.log("shop.id", shop.id);
 
   return loaded && (
     <div>
@@ -64,6 +75,11 @@ const SingleShop = () => {
         <div onClick={removeShop(shop?.id)}>Remove Shop</div>
       )}
       </div>
+      {/* <div>
+        {(user?.id === shop?.owner_id) && (
+          <div onClick={addItem(shop?.id)}>Add Item</div>
+        )}
+      </div> */}
       <div>
         {itemsArray.map((item) => (
           <ItemCard key={item.id} item={item} />
