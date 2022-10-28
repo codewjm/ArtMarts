@@ -4,6 +4,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { getAllItemsThunk } from "../../store/item";
 import { getAllShopsThunk } from "../../store/shop";
 import { deleteItemThunk } from "../../store/item";
+import { getAllUsersThunk } from "../../store/user";
 import UpdateItemForm from "./UpdateItemForm";
 
 
@@ -16,10 +17,15 @@ const SingleItem = () => {
   const user = useSelector((state) => state.session.user);
   const allShops = useSelector((state) => state.shops);
 
+  useEffect(() => {
+    dispatch(getAllItemsThunk()).then(dispatch(getAllUsersThunk()))
+    .then(dispatch(getAllShopsThunk()))
+  }, [dispatch]);
+
+
   const allItems = useSelector((state) => state.items);
   const item = allItems[itemId.itemId];
-
-  const itemShop = item.shop_id;
+  const itemShop = item?.shop_id;
 
   const shop = Object.values(allShops).filter((shop) => shop?.id === itemShop);
   const shopOwnerId = shop[0]?.owner_id;
@@ -37,10 +43,10 @@ const SingleItem = () => {
   useEffect(() => {
     (async () => {
       dispatch(getAllItemsThunk())
-        .then(() => setLoaded(true))
-        .then(() => getAllShopsThunk)
+      .then(() => getAllShopsThunk)
+      .then(() => setLoaded(true))
     })()
-  }, [])
+  }, [dispatch])
 
 
   const removeItem = (itemId) => async (e) => {
