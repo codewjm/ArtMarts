@@ -30,7 +30,7 @@ const NavBar = () => {
           <>
             <div className="shop-manager-drop-nav-container">
               <div className="drop-nav-button" onClick={() => history.push('/user-shops')}>
-                <i className="fa-sharp fa-solid fa-store" />
+                <i className="fa-sharp fa-solid fa-store fa-lg"/>
               </div>
               <div>
                 <DropNav />

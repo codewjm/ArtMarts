@@ -50,10 +50,10 @@
 }
 
 .sign-in-button:hover {
-    border-radius: 300px;
-    background-color: lightgray;
-    transition-duration: 300ms;
-    padding: 8px;
+  border-radius: 300px;
+  background-color: lightgray;
+  transition-duration: 300ms;
+  padding: 8px;
 
 }
 
@@ -78,8 +78,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: transparent;
-  width: 85px;
+  /* background-color: transparent; */
+  width: 90px;
 }
 
 .drop-nav {
@@ -107,6 +107,7 @@
 .drop-nav-button {
   display: flex;
   cursor: pointer;
+  color: black;
   /* background-color: transparent; */
 }
 
@@ -131,7 +132,8 @@
 }
 
 .drop-nav-name {
-  display: flex;;
+  display: flex;
+  ;
   padding: 10px 20px;
   text-align: left;
   align-items: center;
@@ -159,6 +161,8 @@
   border-bottom: 1px solid lightgrey;
 }
 
+
+
 body {
   margin: 0;
   padding: 0px;
@@ -166,14 +170,18 @@ body {
   padding-right: 0px; */
 }
 
-@media only screen and (max-width: 1415px){
+@media only screen and (max-width: 1415px) {
   .nav-container {
     padding-left: 30px !important;
-}
+  }
 }
 
-@media only screen and (max-width: 1415px){
+@media only screen and (max-width: 1415px) {
   .nav-container {
     padding-right: 30px !important;
+  }
 }
+
+i {
+  color: black;
 }

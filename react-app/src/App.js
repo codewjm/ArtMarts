@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar/NavBar';
-import ProtectedRoute from './components/auth/ProtectedRoute';
+// import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
@@ -13,6 +13,9 @@ import CreateShopForm from './components/Shops/CreateShopForm';
 import UpdateShopForm from './components/Shops/UpdateShopForm';
 import SingleShop from './components/Shops/SingleShop';
 import UserShops from './components/Shops/UserShops';
+import AllItems from './components/Items/AllItems';
+import SingleItem from './components/Items/SingleItem';
+import CreateItemForm from './components/Items/CreateItemForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -51,6 +54,9 @@ function App() {
         <Route path='/shops' exact={true} >
           <AllShops />
         </Route>
+        <Route path='/items' exact={true}>
+          <AllItems />
+        </Route>
         <Route path='/user-shops'>
           <UserShops />
         </Route>
@@ -62,6 +68,12 @@ function App() {
         </Route>
         <Route path='/shops/:shopId'>
           <SingleShop />
+        </Route>
+        <Route path='/items/:itemId'>
+          <SingleItem />
+        </Route>
+        <Route path='/create-item-form' exact={true}>
+          <CreateItemForm />
         </Route>
       </Switch>
     </BrowserRouter>

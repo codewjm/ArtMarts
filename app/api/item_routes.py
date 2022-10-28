@@ -11,6 +11,7 @@ item_routes = Blueprint('items', __name__)
 @item_routes.route('/', methods=['GET'])
 def get_items():
     items = Item.query.all()
+    print('API ROUTE ITEMS', items)
     return {'items': [item.to_dict() for item in items]}
 
 #*************************************************************************#

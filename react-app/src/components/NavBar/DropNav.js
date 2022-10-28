@@ -34,7 +34,8 @@ const DropNav = () => {
   return (
     <div className="drop-nav">
       <div className="drop-nav-button" onClick={openDropNav}>
-        <i className="fas fa-user-circle" />
+        <i className="fa-solid fa-user-circle fa-bold" />
+        <i className="fa-sharp fa-solid fa-caret-down"></i>
       </div>
       {showDropNav && (
         <div className="drop-nav-open">
