@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { Redirect, useHistory, useParams } from "react-router-dom";
 import { createItemThunk, getAllItemsThunk } from "../../store/item";
 import { getAllShopsThunk } from "../../store/shop";
 import { getAllUsersThunk } from "../../store/user";
@@ -17,11 +17,16 @@ const CreateItemForm = () => {
   const [item_price, setItem_Price] = useState("");
   const [item_description, setItem_Description] = useState("");
   const [item_img, setItem_Img] = useState("");
-  // const [shop_id, setShop_Id] = useState("");
+  const [shop_id, setShop_Id] = useState("");
   const [errors, setErrors] = useState([]);
   const [submitted, setSubmitted] = useState(false);
 
   const imageRegX = /\.(jpeg|jpg|png|svg)$/
+
+  useEffect(() => {
+    dispatch(getAllShopsThunk()).then(dispatch(getAllUsersThunk()))
+  }, [dispatch]);
+
 
   useEffect(() => {
     let errors = [];
@@ -46,6 +51,7 @@ const CreateItemForm = () => {
     }
   }, [item_name, item_description, item_img, user]);
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitted(true);
@@ -61,6 +67,7 @@ const CreateItemForm = () => {
       shop_id: Number(shopId)
     };
     return await dispatch(createItemThunk(itemData))
+    .then(dispatch(getAllShopsThunk()))
     .then(history.push(`/shops/${shopId}`))
   }
 

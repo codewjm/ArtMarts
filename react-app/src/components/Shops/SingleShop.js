@@ -36,6 +36,8 @@ const SingleShop = () => {
   }, []);
 
 
+  if(!shop) return <Redirect to="/user-shops" />
+
   const removeShop = (shopId) => async (e) => {
     e.preventDefault();
     dispatch(deleteShopThunk(shopId));
@@ -59,7 +61,7 @@ const SingleShop = () => {
   // console.log("shopId", shopId);
   // console.log("shop.id", shop?.id);
 
-  if(!shop) <Redirect to="/user-shops" />
+
 
   return loaded && (
     <div>

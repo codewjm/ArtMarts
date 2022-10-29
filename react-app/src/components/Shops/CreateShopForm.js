@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { createShopThunk } from "../../store/shop";
+import { getAllShopsThunk } from "../../store/shop";
+import { getAllUsersThunk } from "../../store/user";
 
 const CreateShopForm = () => {
   const dispatch = useDispatch();
@@ -15,6 +17,7 @@ const CreateShopForm = () => {
   const [submitted, setSubmitted] = useState(false);
 
   const imageRegX = /\.(jpeg|jpg|png|svg)$/
+
 
   useEffect(() => {
     let errors = [];
@@ -38,6 +41,7 @@ const CreateShopForm = () => {
       setErrors(errors);
     }
   }, [shop_name, shop_description, shop_img, user]);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();

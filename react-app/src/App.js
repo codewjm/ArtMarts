@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar/NavBar';
-// import ProtectedRoute from './components/auth/ProtectedRoute';
+import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
@@ -58,21 +58,21 @@ function App() {
         <Route path='/items' exact={true}>
           <AllItems />
         </Route>
-        <Route path='/user-shops' exact={true}>
+        <ProtectedRoute path='/user-shops' exact={true}>
           <UserShops />
-        </Route>
-        <Route path='/create-shop-form' exact={true} >
+        </ProtectedRoute>
+        <ProtectedRoute path='/create-shop-form' exact={true} >
           <CreateShopForm />
-        </Route>
-        <Route path='/shops/:shopId/update' exact={true}>
+        </ProtectedRoute>
+        <ProtectedRoute path='/shops/:shopId/update' exact={true}>
           <UpdateShopForm />
-        </Route>
-        <Route path='/shops/:shopId/create-item-form' exact={true}>
+        </ProtectedRoute>
+        <ProtectedRoute path='/shops/:shopId/create-item-form' exact={true}>
           <CreateItemForm />
-        </Route>
-        <Route path="/items/:itemId/update" exact={true}>
+        </ProtectedRoute>
+        <ProtectedRoute path="/items/:itemId/update" exact={true}>
           <UpdateItemForm />
-        </Route>
+        </ProtectedRoute>
         <Route path='/shops/:shopId' exact={true}>
           <SingleShop />
         </Route>

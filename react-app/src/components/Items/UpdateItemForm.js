@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
-import { getAllItemsThunk, createItemThunk } from "../../store/item";
+import { Redirect, useHistory, useParams } from "react-router-dom";
+import { getAllItemsThunk, createItemThunk, updateItemThunk } from "../../store/item";
 import { getAllUsersThunk } from "../../store/user";
 
 const UpdateItemForm = () => {
@@ -23,6 +23,7 @@ const UpdateItemForm = () => {
   useEffect(() => {
     dispatch(getAllItemsThunk()).then(dispatch(getAllUsersThunk()))
   }, [dispatch]);
+
 
   useEffect(() => {
     if(item) {
@@ -60,6 +61,7 @@ const UpdateItemForm = () => {
     }
   }, [item_name, item_description, item_img, user]);
 
+  if(!item) return <Redirect to="/user-shops" />
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -68,13 +70,14 @@ const UpdateItemForm = () => {
     if (errors.length) return
 
     const itemData = {
+      owner_id: user.id,
       item_name: item_name,
       item_price: item_price,
       item_description: item_description,
       item_img: item_img,
       shop_id: shop_id
     };
-    return await dispatch(createItemThunk(itemData))
+    return await dispatch(updateItemThunk(itemData, itemId))
     .then(history.push(`/items/${itemId}`))
   }
 

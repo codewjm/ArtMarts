@@ -14,7 +14,7 @@ class Item(db.Model):
 
   owner = db.relationship('User', back_populates='item_owner')
   item = db.relationship('Shop', back_populates='shop_item')
-  review = db.relationship('Review', back_populates='item_reviews', cascade='all, delete')
+  review = db.relationship('Review', back_populates='item_reviews', cascade='all, delete-orphan')
 
   def to_dict(self):
     return {
