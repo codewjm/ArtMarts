@@ -1,14 +1,13 @@
 .shop-card-outer-container {
-  margin-left: 120px;
-  margin-bottom: 50px;
-  height: 200px;
-  width: 800px;
+  margin-bottom: 30px;
+  /* height: 200px; */
+  /* width: 800px; */
 }
 
 .shop-card-container {
-  height: 200px;
-  width: 800px;
-  margin-top: 70px;
+  /* height: 200px; */
+  width: 500px;
+  /* margin-top: 70px; */
   cursor: pointer;
   /* margin-bottom: 20px; */
 
@@ -18,7 +17,6 @@
   display: flex;
   /* border-bottom: 2px solid rgb(216, 216, 216); */
   border-radius: 5px;
-  padding: 10px;
   /* border-left: 2px solid rgb(190, 141, 141); */
   /* flex-direction: row;
   justify-content: space-between; */
@@ -32,8 +30,6 @@
   width: 200px;
   height: 210px;
   object-fit: cover;
-  margin-bottom: 10px;
-  border: 2px solid rgb(215, 213, 213);
   border-radius: 5px;
 }
 

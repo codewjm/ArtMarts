@@ -6,6 +6,7 @@ import { getAllShopsThunk } from "../../store/shop";
 import { deleteItemThunk } from "../../store/item";
 import { getAllUsersThunk } from "../../store/user";
 import UpdateItemForm from "./UpdateItemForm";
+import defaultItem from "../Images/defaultItem.png";
 
 
 const SingleItem = () => {
@@ -68,7 +69,14 @@ const SingleItem = () => {
     <div>
       <h1>Single Item</h1>
       <div>{item?.item_name}</div>
-      <div><img className="item-page-img" src={item?.item_img} alt="Item Image"></img></div>
+      <div>
+        <img
+          className="item-page-img"
+          src={item?.item_img}
+          alt="Item Image"
+          onError={(e) => {e.target.src = defaultItem}}
+          />
+      </div>
       <div>${item?.item_price}</div>
       <div>{item?.item_description}</div>
 

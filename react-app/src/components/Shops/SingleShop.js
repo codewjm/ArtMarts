@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory, useParams } from "react-router-dom";
 import { getAllShopsThunk, deleteShopThunk, updateShopThunk } from "../../store/shop";
-import ItemCard from "../../ItemCard";
+import ItemCard from "../ItemCard";
 import { getAllItemsThunk } from "../../store/item";
 import CreateItemForm from "../Items/CreateItemForm";
+import defaultShop from "../Images/defaultShop.png";
+
 
 const SingleShop = () => {
   const dispatch = useDispatch();
@@ -36,7 +38,7 @@ const SingleShop = () => {
   }, []);
 
 
-  if(!shop) return <Redirect to="/user-shops" />
+  if (!shop) return <Redirect to="/user-shops" />
 
   const removeShop = (shopId) => async (e) => {
     e.preventDefault();
@@ -61,30 +63,35 @@ const SingleShop = () => {
   // console.log("shopId", shopId);
   // console.log("shop.id", shop?.id);
 
-
-
   return loaded && (
     <div>
       <div onClick={() => history.push(`/shops/${shop?.id}`)}>
         <h1>SingleShop</h1>
-        <div><img className="shop-page-img"  src={shop?.shop_img} alt="Shop Image"></img></div>
+        <div>
+          <img
+            className="shop-page-img"
+            src={shop?.shop_img}
+            alt="Shop Image"
+            onError={(e) => {e.target.src = defaultShop}}
+          />
+        </div>
         <div>{shop?.shop_name}</div>
         <div>{shop?.shop_description}</div>
       </div>
       <div>
-      {(user?.id === shop?.owner_id) && (
-        <div onClick={updateShop(shop?.id)}>Update Shop</div>
-      )}
+        {(user?.id === shop?.owner_id) && (
+          <div onClick={updateShop(shop?.id)}>Update Shop</div>
+        )}
       </div>
       <div>
-      {(user?.id === shop?.owner_id) && (
-        <div onClick={removeShop(shop?.id)}>Remove Shop</div>
-      )}
+        {(user?.id === shop?.owner_id) && (
+          <div onClick={removeShop(shop?.id)}>Remove Shop</div>
+        )}
       </div>
       <div>
         {(user?.id === shop?.owner_id) && (
           <div onClick={addItem(shop?.id)}>Add Item</div>
-       )}
+        )}
       </div>
       <div>
         {itemsArray.map((item) => (

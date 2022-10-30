@@ -5,6 +5,7 @@ import { getAllUsersThunk } from '../../store/user';
 import { getAllShopsThunk } from '../../store/shop';
 // import CreateShopForm from '../Shops/CreateShopForm';
 import ShopsCard from '../ShopCard';
+import MonetizeYourPassion from '../Images/MonetizeYourPassion.png'
 
 const UserShops = () => {
   const dispatch = useDispatch();
@@ -29,14 +30,30 @@ const UserShops = () => {
 
 
   return loaded && (
-    <>
-      <div>
-        <div className="create-shop-button" onClick={() => history.push('/create-shop-form')}>Create a shop</div>
+    <div className="user-shops-page-outer-container">
+      <div className="user-shops-page-inner-container">
+        <div className="shop-cards-container">
+          <div className="your-shops-title">arts:</div>
+          {
+            userShops.map(shop => (<ShopsCard shop={shop} key={shop.id} />))
+          }
+        </div>
+        <div className="MYP-container">
+          <div
+            className="create-shop-button"
+            // className="form-button"
+            onClick={() => history.push('/create-shop-form')}
+          >
+            Create an ArtMart
+          </div>
+          <img
+            src={MonetizeYourPassion}
+            alt="Monetize Your Passion"
+            className="shop-img"
+          />
+        </div>
       </div>
-      {
-        userShops.map(shop => (<ShopsCard shop={shop} key={shop.id} />))
-      }
-    </>
+    </div>
   )
 }
 

@@ -4,7 +4,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { getAllItemsThunk } from "../../store/item";
 import { getAllShopsThunk } from "../../store/shop";
 import { getAllUsersThunk } from "../../store/user";
-import ItemsCard from "../../ItemCard";
+import ItemsCard from "../ItemCard";
 
 const AllItems = () => {
   const dispatch = useDispatch();

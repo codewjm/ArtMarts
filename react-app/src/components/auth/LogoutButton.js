@@ -14,7 +14,7 @@ const LogoutButton = () => {
   };
 
   return (
-  <div onClick={onLogout}>Sign out</div>
+  <div className="drop-nav-option" onClick={onLogout}>Sign out</div>
   );
 };
 
