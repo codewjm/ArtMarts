@@ -22,6 +22,7 @@ const CreateItemForm = () => {
   const [submitted, setSubmitted] = useState(false);
 
   const imageRegX = /\.(jpeg|jpg|png|svg)$/
+  const parsedPrice = parseFloat(item_price).toFixed(2);
 
   useEffect(() => {
     dispatch(getAllShopsThunk()).then(dispatch(getAllUsersThunk()))
@@ -38,18 +39,21 @@ const CreateItemForm = () => {
     else {
 
       if (item_name.length < 2 || item_name.length > 50) {
-        errors.push("Item name must be between 2 and 50 characters.")
+        errors.push("Item name must be between 2 and 50 characters")
+      }
+      if (item_price !== parsedPrice) {
+        errors.push("Item price must be a valid price ( 0.00 )")
       }
       if (item_description.length < 2 || item_description.length > 255) {
-        errors.push("Item description must be between 2 and 255 characters.")
+        errors.push("Item description must be between 2 and 255 characters")
       }
-      if (item_img.length < 2 || !item_img.split('?')[0].match(imageRegX)) {
-        errors.push("image: must be a valid type: jpg, jpeg, png, svg.")
-      }
+      // if (item_img.length < 2 || !item_img.split('?')[0].match(imageRegX)) {
+      //   errors.push("Image must be a valid type: jpg, jpeg, png, svg.")
+      // }
 
       setErrors(errors);
     }
-  }, [item_name, item_description, item_img, user]);
+  }, [item_name, item_price, item_description, user]);
 
 
   const handleSubmit = async (e) => {
@@ -122,7 +126,7 @@ const CreateItemForm = () => {
             />
           </div>
           <div>
-            <label htmlFor='Item Image' className='form-field-label'>Item Image</label>
+            <label htmlFor='Item Image' className='form-field-label'>Item Image (optional)</label>
             <input
               className="form-field"
               name="Item Image"
@@ -130,7 +134,6 @@ const CreateItemForm = () => {
               value={item_img}
               placeholder="Item Image"
               onChange={(e) => setItem_Img(e.target.value)}
-              required
             />
           </div>
           <div>

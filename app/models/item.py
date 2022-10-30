@@ -8,7 +8,7 @@ class Item(db.Model):
   item_name = db.Column(db.String(50), nullable = False)
   item_price = db.Column(db.String(10), nullable = False)
   item_description = db.Column(db.String(255), nullable = False)
-  item_img = db.Column(db.String(500), nullable = False)
+  item_img = db.Column(db.String(500))
   shop_id = db.Column(db.Integer, db.ForeignKey('shops.id'), nullable = False)
   # category_id = db.column(db.integer, db.foreignkey('categories.id'), nullable = False)
 
