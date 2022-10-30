@@ -19,12 +19,22 @@ const ItemsCard = ({ item }) => {
   return (
     <div className="item-card-outer-container" onClick={() => history.push(`/items/${item?.id}`)}>
       <div className="item-card-container">
+      <div className="item-card-price">
+          <span>
+            ${item?.item_price}
+          </span>
+        </div>
         <img
           src={item?.item_img}
           className="item-card-img"
           alt="Item Image"
-          onError={(e) => {e.target.src = defaultItem}}
+          onError={(e) => { e.target.src = defaultItem }}
         />
+        {/* <div className="item-card-price">
+          <span>
+            ${item?.item_price}
+          </span>
+        </div> */}
       </div>
     </div>
   );
