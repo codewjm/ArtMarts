@@ -14,7 +14,7 @@ const UserShops = () => {
   const first_name = useSelector(state => state.session.user.first_name);
   const shops = useSelector(state => state.shops);
   const [loaded, setLoaded] = useState(false);
-  const [areShops, setAreShops] = useState(false);
+
 
   useEffect(() => {
     dispatch(getAllShopsThunk()).then(() => dispatch(getAllUsersThunk())).then(() => setLoaded(true))
@@ -26,17 +26,15 @@ const UserShops = () => {
   const shopsArray = Object.values(shops)
   const userShops = shopsArray.filter(shop => shop.owner_id === sessionUser.id)
   const hasShop = Object.values(userShops)
-  console.log('userShops***********', userShops)
-  console.log('shopsArray***********', shopsArray)
-  // console.log('sessionUser.id***********', sessionUser.id)
-  console.log('shop.owner_id***********', shops.owner_id)
-  console.log("hasShop", hasShop)
+  // console.log('userShops***********', userShops)
+  // console.log('shopsArray***********', shopsArray)
+  // // console.log('sessionUser.id***********', sessionUser.id)
+  // console.log('shop.owner_id***********', shops.owner_id)
+  // console.log("hasShop", hasShop)
 
   // if (userShops.length >= 1) setAreShops(true)
 
   return loaded && (
-    <>
-      {hasShop.length >= 1 && (
         <>
           <div className="orange-banner">
             <div className="your-shops-title">{first_name}'s ArtMarts</div>
@@ -66,9 +64,8 @@ const UserShops = () => {
               </div>
             </div>
           </div>
-        </>
-      )}
-      {hasShop.length < 1 && (
+
+      {/* {hasShop.length < 1 && (
         <div>
           <div className="orange-banner">
             <div className="no-shops-title">{first_name}, you have no ArtMarts...</div>
@@ -90,7 +87,7 @@ const UserShops = () => {
           </div>
           </div>
         </div>
-      )}
+      )} */}
     </>
   )
 }
