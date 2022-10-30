@@ -35,7 +35,9 @@ const UserShops = () => {
   // if (userShops.length >= 1) setAreShops(true)
 
   return loaded && (
-        <>
+    <>
+      {hasShop.length > 0  && (
+        <div>
           <div className="orange-banner">
             <div className="your-shops-title">{first_name}'s ArtMarts</div>
           </div>
@@ -64,30 +66,31 @@ const UserShops = () => {
               </div>
             </div>
           </div>
-
-      {/* {hasShop.length < 1 && (
+        </div>
+      )}
+      {hasShop.length < 1 && (
         <div>
           <div className="orange-banner">
             <div className="no-shops-title">{first_name}, you have no ArtMarts...</div>
           </div>
-          <div  className="entire-no-shops">
-          <div className="MYP-no-shops">
-            <div
-              className="create-shop-button-no-shop"
-              // className="form-button"
-              onClick={() => history.push('/create-shop-form')}
-            >
-              Create an ArtMart
+          <div className="entire-no-shops">
+            <div className="MYP-no-shops">
+              <div
+                className="create-shop-button-no-shop"
+                // className="form-button"
+                onClick={() => history.push('/create-shop-form')}
+              >
+                Create an ArtMart
+              </div>
+              <img
+                src={MonetizeYourPassion}
+                alt="Monetize Your Passion"
+                className="no-shop-img"
+              />
             </div>
-            <img
-              src={MonetizeYourPassion}
-              alt="Monetize Your Passion"
-              className="no-shop-img"
-            />
-          </div>
           </div>
         </div>
-      )} */}
+      )}
     </>
   )
 }
