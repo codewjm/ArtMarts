@@ -4,7 +4,7 @@
   height: 200px;
   object-fit: cover;
   margin-bottom: 10px;
-  border: 2px solid rgb(215, 213, 213);
+  /* border: 2px solid rgb(215, 213, 213); */
   border-radius: 6px;
 }
 
@@ -22,8 +22,19 @@
 
 .item-card-price span{
   position: absolute;
-  bottom: 0;
-  left: 20px;
+  bottom: 0px;
+  left: 0px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: Helvetica !important;
+  margin: 10px;
+  border-radius: 15px;
+  width: auto;
+  background-color: white;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
   z-index: 10;
 }
 
