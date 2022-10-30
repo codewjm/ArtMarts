@@ -14,6 +14,7 @@ const UserShops = () => {
   const first_name = useSelector(state => state.session.user.first_name);
   const shops = useSelector(state => state.shops);
   const [loaded, setLoaded] = useState(false);
+  const [areShops, setAreShops] = useState(false);
 
   useEffect(() => {
     dispatch(getAllShopsThunk()).then(() => dispatch(getAllUsersThunk())).then(() => setLoaded(true))
@@ -24,29 +25,58 @@ const UserShops = () => {
 
   const shopsArray = Object.values(shops)
   const userShops = shopsArray.filter(shop => shop.owner_id === sessionUser.id)
+  const hasShop = Object.values(userShops)
   console.log('userShops***********', userShops)
   console.log('shopsArray***********', shopsArray)
   // console.log('sessionUser.id***********', sessionUser.id)
   console.log('shop.owner_id***********', shops.owner_id)
+  console.log("hasShop", hasShop)
 
+  // if (userShops.length >= 1) setAreShops(true)
 
   return loaded && (
     <>
-      <div className="orange-banner">
-        <div className="your-shops-title">{first_name}'s ArtMarts</div>
-      </div>
-      <div className="white-banner"></div>
-      <div className="user-shops-page-outer-container">
-        <div className="user-shops-page-inner-container">
-          <div className="shop-cards-container">
-            {
-              userShops.map(shop => (<ShopsCard shop={shop} key={shop.id} />))
-            }
+      {hasShop.length >= 1 && (
+        <>
+          <div className="orange-banner">
+            <div className="your-shops-title">{first_name}'s ArtMarts</div>
           </div>
-          <div className="vl"></div>
-          <div className="MYP-container">
+          <div className="white-banner"></div>
+          <div className="user-shops-page-outer-container">
+            <div className="user-shops-page-inner-container">
+              <div className="shop-cards-container">
+                {
+                  userShops.map(shop => (<ShopsCard shop={shop} key={shop.id} />))
+                }
+              </div>
+              <div className="vl"></div>
+              <div className="MYP-container">
+                <div
+                  className="create-shop-button"
+                  // className="form-button"
+                  onClick={() => history.push('/create-shop-form')}
+                >
+                  Create an ArtMart
+                </div>
+                <img
+                  src={MonetizeYourPassion}
+                  alt="Monetize Your Passion"
+                  className="shop-img"
+                />
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+      {hasShop.length < 1 && (
+        <div>
+          <div className="orange-banner">
+            <div className="no-shops-title">{first_name}, you have no ArtMarts...</div>
+          </div>
+          <div  className="entire-no-shops">
+          <div className="MYP-no-shops">
             <div
-              className="create-shop-button"
+              className="create-shop-button-no-shop"
               // className="form-button"
               onClick={() => history.push('/create-shop-form')}
             >
@@ -55,11 +85,12 @@ const UserShops = () => {
             <img
               src={MonetizeYourPassion}
               alt="Monetize Your Passion"
-              className="shop-img"
+              className="no-shop-img"
             />
           </div>
+          </div>
         </div>
-      </div>
+      )}
     </>
   )
 }

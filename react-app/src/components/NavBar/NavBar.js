@@ -15,6 +15,7 @@ const NavBar = () => {
 
 
   return (
+    <>
     <div className="master-nav-container">
       <div className="nav-container">
         <div id="nav-bar-logo" onClick={() => history.push('/')}>ArtMarts</div>
@@ -31,7 +32,7 @@ const NavBar = () => {
             <div className="shop-manager-drop-nav-container">
               <div
               className="drop-nav-button"
-              title="Shop Manager"
+              title="ArtMart Manager"
               onClick={() => history.push('/user-shops')}>
                 <i className="fa-sharp fa-solid fa-store fa-lg"/>
               </div>
@@ -43,6 +44,8 @@ const NavBar = () => {
         )}
       </div>
     </div>
+    {/* <div className="border-nav"></div> */}
+    </>
   );
 }
 
