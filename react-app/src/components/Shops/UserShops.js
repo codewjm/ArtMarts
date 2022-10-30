@@ -11,6 +11,7 @@ const UserShops = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const sessionUser = useSelector(state => state.session.user);
+  const first_name = useSelector(state => state.session.user.first_name);
   const shops = useSelector(state => state.shops);
   const [loaded, setLoaded] = useState(false);
 
@@ -30,30 +31,36 @@ const UserShops = () => {
 
 
   return loaded && (
-    <div className="user-shops-page-outer-container">
-      <div className="user-shops-page-inner-container">
-        <div className="shop-cards-container">
-          <div className="your-shops-title">arts:</div>
-          {
-            userShops.map(shop => (<ShopsCard shop={shop} key={shop.id} />))
-          }
-        </div>
-        <div className="MYP-container">
-          <div
-            className="create-shop-button"
-            // className="form-button"
-            onClick={() => history.push('/create-shop-form')}
-          >
-            Create an ArtMart
+    <>
+      <div className="orange-banner">
+        <div className="your-shops-title">{first_name}'s ArtMarts</div>
+      </div>
+      <div className="white-banner"></div>
+      <div className="user-shops-page-outer-container">
+        <div className="user-shops-page-inner-container">
+          <div className="shop-cards-container">
+            {
+              userShops.map(shop => (<ShopsCard shop={shop} key={shop.id} />))
+            }
           </div>
-          <img
-            src={MonetizeYourPassion}
-            alt="Monetize Your Passion"
-            className="shop-img"
-          />
+          <div className="vl"></div>
+          <div className="MYP-container">
+            <div
+              className="create-shop-button"
+              // className="form-button"
+              onClick={() => history.push('/create-shop-form')}
+            >
+              Create an ArtMart
+            </div>
+            <img
+              src={MonetizeYourPassion}
+              alt="Monetize Your Passion"
+              className="shop-img"
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

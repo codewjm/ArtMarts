@@ -29,7 +29,10 @@ const NavBar = () => {
         {sessionUser && (
           <>
             <div className="shop-manager-drop-nav-container">
-              <div className="drop-nav-button" onClick={() => history.push('/user-shops')}>
+              <div
+              className="drop-nav-button"
+              title="Shop Manager"
+              onClick={() => history.push('/user-shops')}>
                 <i className="fa-sharp fa-solid fa-store fa-lg"/>
               </div>
               <div>

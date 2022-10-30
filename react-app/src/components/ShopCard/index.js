@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import './ShopCard.css'
-import defaultShop from "../Images/defaultShop.png";
+import defaultArtMart3 from '../Images/defaultArtMart3.png'
 
 const ShopsCard = ({ shop }) => {
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ const ShopsCard = ({ shop }) => {
             src={shop?.shop_img}
             className="shop-card-img"
             alt="Shop Image"
-            onError={(e) => { e.target.src = defaultShop }}
+            onError={(e) => { e.target.src = defaultArtMart3 }}
           />
           {/* </div> */}
           <div className="shop-card-right">

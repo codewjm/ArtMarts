@@ -6,7 +6,8 @@ import ItemCard from "../ItemCard";
 import { getAllItemsThunk } from "../../store/item";
 import CreateItemForm from "../Items/CreateItemForm";
 import defaultShop from "../Images/defaultShop.png";
-
+import MonetizeYourPassion from '../Images/MonetizeYourPassion.png'
+import defaultArtMart3 from '../Images/defaultArtMart3.png'
 
 const SingleShop = () => {
   const dispatch = useDispatch();
@@ -72,7 +73,7 @@ const SingleShop = () => {
             className="shop-page-img"
             src={shop?.shop_img}
             alt="Shop Image"
-            onError={(e) => {e.target.src = defaultShop}}
+            onError={(e) => {e.target.src = defaultArtMart3}}
           />
         </div>
         <div>{shop?.shop_name}</div>
