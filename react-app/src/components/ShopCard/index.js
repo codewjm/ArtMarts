@@ -28,7 +28,6 @@ const ShopsCard = ({ shop }) => {
           {/* </div> */}
           <div className="shop-card-right">
             <div className="shop-card-name">{shop?.shop_name}</div>
-            <div className="shop-card-description">{shop?.shop_description}</div>
           </div>
         </div>
       </div>

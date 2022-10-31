@@ -1,0 +1,76 @@
+/* .splash-page-container {
+  height: 200px;
+  padding-bottom: 30px;
+} */
+
+.SP-orange-banner {
+  display: flex;
+  justify-content: center;
+  height: 100px;
+  background-color: bisque;
+  position: sticky;
+  /* padding-top: 50px; */
+  top: 0px;
+  z-index: 8;
+}
+
+.SP-shops-outer-container {
+  display: flex;
+  justify-content: space-between;
+  height: 115px;
+  margin-top: 20px;
+  position: relative;
+  max-width: 1325px
+}
+
+.SP-shop-card-container {
+  display: flex;
+  flex-direction: column;
+  width: 115px;
+  height: 165px;;
+  /* position: relative; */
+}
+
+.SP-shop-img-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.SP-shop-card-img {
+  display:flex;
+  justify-content: center;
+  width: 115px;
+  height: 115px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.SP-shop-card-img:hover {
+  cursor: pointer;
+}
+
+.SP-shop-name-container {
+  display:flex;
+  margin-top: 10px;;
+  justify-content: center;
+  text-align: center;
+}
+
+.SP-shop-name-container:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+
+
+.SP-shops-inner-container{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  top: 25px;
+  margin-left: 20px;;
+  margin-right: 20px;;
+}

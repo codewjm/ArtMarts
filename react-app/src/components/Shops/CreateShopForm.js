@@ -34,13 +34,13 @@ const CreateShopForm = () => {
       if (shop_description.length < 2 || shop_description.length > 255) {
         errors.push("shop name: must be between 2 and 255 characters.")
       }
-      if (shop_img.length < 2 || !shop_img.split('?')[0].match(imageRegX)) {
-        errors.push("image: must be a valid type: jpg, jpeg, png, svg.")
-      }
+      // if (shop_img.length < 2 || !shop_img.split('?')[0].match(imageRegX)) {
+      //   errors.push("image: must be a valid type: jpg, jpeg, png, svg.")
+      // }
 
       setErrors(errors);
     }
-  }, [shop_name, shop_description, shop_img, user]);
+  }, [shop_name, shop_description, user]);
 
 
   const handleSubmit = async (e) => {
@@ -56,7 +56,7 @@ const CreateShopForm = () => {
       shop_img: shop_img,
     };
     return await dispatch(createShopThunk(shopData))
-    .then((res) => history.push(`/shops/${res.id}`))
+      .then((res) => history.push(`/shops/${res.id}`))
     // if (createdShop) {
     //   history.push(`/shops/${createdShop.id}`);
     // }
@@ -108,7 +108,6 @@ const CreateShopForm = () => {
               value={shop_img}
               placeholder="Shop Image"
               onChange={(e) => setShop_Img(e.target.value)}
-              required
             />
           </div>
           <div>

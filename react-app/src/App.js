@@ -17,6 +17,7 @@ import AllItems from './components/Items/AllItems';
 import SingleItem from './components/Items/SingleItem';
 import CreateItemForm from './components/Items/CreateItemForm';
 import UpdateItemForm from './components/Items/UpdateItemForm';
+import SplashPage from './components/SplashPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -38,7 +39,7 @@ function App() {
       <NavBar loaded={loaded} />
       <Switch>
         <Route path='/' exact={true} >
-          <h1>Items coming soon!</h1>
+          <SplashPage />
         </Route>
         <Route path='/login' exact={true}>
           <LoginForm />

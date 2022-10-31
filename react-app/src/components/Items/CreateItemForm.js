@@ -17,7 +17,7 @@ const CreateItemForm = () => {
   const [item_price, setItem_Price] = useState("");
   const [item_description, setItem_Description] = useState("");
   const [item_img, setItem_Img] = useState("");
-  const [shop_id, setShop_Id] = useState("");
+  // const [shop_id, setShop_Id] = useState("");
   const [errors, setErrors] = useState([]);
   const [submitted, setSubmitted] = useState(false);
 
@@ -77,6 +77,8 @@ const CreateItemForm = () => {
 
   // console.log("shopId", shopId);
   // console.log("shop_id with number", Number(shopId));
+
+
   return (
     <div className="form-outer-container">
       <form onSubmit={handleSubmit}>

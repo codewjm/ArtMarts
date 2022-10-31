@@ -29,6 +29,9 @@ const SingleShop = () => {
   // console.log("itemsArray", itemsArray);
 
 
+
+
+
   useEffect(() => {
 
     (async () => {
@@ -46,7 +49,7 @@ const SingleShop = () => {
   //   }, []);
 
 
-  // if (shop.id !== thisShopId) return <Redirect to="/user-shops" />
+  if (shop?.id !== thisShopId) return <Redirect to="/user-shops" />
     console.log("shop.id", shop?.id)
     console.log("shopId", shopId.shopId)
     console.log("thisShopId", thisShopId)
