@@ -6,7 +6,7 @@ def seed_items():
     item_name="Paint Brush",
     item_price="20.00",
     item_description="Paint brush Description",
-    item_img="https://cdn.mscdirect.com/global/images/ProductImages/9315381-24.jpg",
+    item_img="https://www.artnews.com/wp-content/uploads/2020/09/AdobeStock_61145816.jpeg",
     shop_id=1
   )
   item_two = Item(
@@ -14,12 +14,12 @@ def seed_items():
     item_name="Canvas",
     item_price="11.00",
     item_description="Canvas Description",
-    item_img="https://i5.walmartimages.com/asr/92f1eb7b-4a26-4122-add1-e9d5311a1ad5.f701271d51f82f5bcd30a806fae317d6.jpeg",
+    item_img="https://imgs.michaels.com/MAM/assets/1/5E3C12034D34434F8A9BAAFDDF0F8E1B/img/016DB9C981334D10AF77E13648EC167E/10131569_25.jpg",
     shop_id=2
   )
   item_three = Item(
     owner_id=3,
-    item_name="Paint",
+    item_name="Palette Knife",
     item_price="25.00",
     item_description="Paint knife description",
     item_img="https://www.brushesandmore.com/wp-content/uploads/2017/06/500820.jpg",

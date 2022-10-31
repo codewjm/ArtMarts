@@ -7,5 +7,5 @@ class CreateShopForm(FlaskForm):
   owner_id = IntegerField('Owner Id', validators=[DataRequired()])
   shop_name = StringField('Shop Name', validators=[DataRequired()])
   shop_description = StringField('Shop Description', validators=[DataRequired()])
-  shop_img = StringField('Shop Image', validators=[DataRequired()])
+  shop_img = StringField('Shop Image')
   submit = SubmitField('Submit')
