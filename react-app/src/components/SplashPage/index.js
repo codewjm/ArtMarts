@@ -26,16 +26,15 @@ const SplashPage = () => {
     <div className="splashPage-all">
       <div className="splash-page-container">
         <div className="SP-orange-banner">
-
+          <div className="SP-shops-header">Featured ArtMarts</div>
           <div className="SP-shops-outer-container">
-
             {limitShops.map((shop) => (
-              <div className="SP-shop-card-container" >
-                <div className="SP-shop-img-container" >
+              <div className="SP-shop-card-container transtition" >
+                <div className="SP-shop-img-container tansition" >
                   <img
                     src={shop?.shop_img}
                     onClick={() => history.push(`/shops/${shop?.id}`)}
-                    className="SP-shop-card-img"
+                    className="SP-shop-card-img transition"
                     alt="Shop Image"
                     onError={(e) => { e.target.src = defaultArtMart3 }}
                   />

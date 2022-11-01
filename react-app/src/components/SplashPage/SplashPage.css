@@ -2,16 +2,39 @@
   height: 200px;
   padding-bottom: 30px;
 } */
+.splashPage-all{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
 
 .SP-orange-banner {
   display: flex;
   justify-content: center;
-  height: 100px;
+  flex-direction: column;
+  height: 150px;
   background-color: bisque;
   position: sticky;
   /* padding-top: 50px; */
-  top: 0px;
+  /* top: 0px; */
   z-index: 8;
+}
+
+.SP-shops-header {
+  display: flex;
+  justify-content: center;
+  /* position: absolute; */
+  /* font-family: Gerogia !important; */
+  font-family: Cambria;
+  font-size: xx-large;
+  max-width: 300px;
+  /* color: #F1641E; */
+  color: rgb(52, 52, 52);
+  height: 60px;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .SP-shops-outer-container {
@@ -20,7 +43,7 @@
   position: relative;
   width: 100%;
   max-width: 990px;
-  height: 115px;
+  height: 165px;
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
@@ -30,9 +53,17 @@
   display: flex;
   flex-direction: column;
   width: 115px;
-  height: 165px;;
-  /* position: relative; */
+  height: 180px;
+  /* text-decoration: none !important;
+  transition-property: opacity !important;
+  transition-duration: 200ms !important;
+  transition-timing-function: ease-out !important;
+  transition-delay: 0s !important; */
 }
+
+/* .SP-shop-card-container:hover {
+    border-bottom: 2px solid rgb(52, 52, 52);
+} */
 
 .SP-shop-img-container {
   display: flex;
@@ -41,28 +72,38 @@
 }
 
 .SP-shop-card-img {
-  display:flex;
+  display: flex;
   justify-content: center;
   width: 115px;
   height: 115px;
   object-fit: cover;
   border-radius: 50%;
+  box-shadow: 0px 0px 10px -3px rgba(0, 0, 0, 0.57);
+  transition: 210ms ease-in-out;
 }
 
 .SP-shop-card-img:hover {
+  width: 130px;
+  height: 130px;
   cursor: pointer;
+
+  box-shadow: 0px 4px 15px -3px rgba(0, 0, 0, 0.57);
 }
 
 .SP-shop-name-container {
-  display:flex;
-  margin-top: 10px;;
+  display: flex;
+  margin-top: 10px;
   justify-content: center;
   text-align: center;
+  font-weight: 600;
+  color: rgb(81, 81, 81);
+  font-family: Helvetica, Arial, Sans-Serif;
+  transition: 60ms ease-in-out;
 }
 
 .SP-shop-name-container:hover {
   cursor: pointer;
-  font-weight: bold;
+  border-bottom: 2px solid rgb(52, 52, 52);
 }
 
 /* .SP-shops-inner-container{
@@ -104,14 +145,12 @@
 .SP-single-item-card {
   display: flex;
   border-radius: 5px;
+  box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.57);
+  transition: 200ms ease-in-out;
 }
 
-.SP-single-item-card:hover{
+
+.SP-single-item-card:hover {
   cursor: pointer;
-  box-shadow: 0px 4px 8px -3px rgba(0, 0, 0, 0.57);
+  box-shadow: 0px 0px 10px -3px rgba(0, 0, 0, 0.57);
 }
-
-/* .splashPage-all{
-  display: flex;
-  justify-content: center;
-} */
