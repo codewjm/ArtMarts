@@ -16,6 +16,8 @@ const SplashPage = () => {
 
   const shopsArray = Object.values(shops);
 
+  const limitShops = shopsArray.slice(0, 6)
+
   useEffect(() => {
     dispatch(getAllShopsThunk()).then(() => dispatch(getAllItemsThunk()))
   }, [dispatch]);
@@ -27,7 +29,7 @@ const SplashPage = () => {
 
           <div className="SP-shops-outer-container">
 
-            {shopsArray.map((shop) => (
+            {limitShops.map((shop) => (
               <div className="SP-shop-card-container" >
                 <div className="SP-shop-img-container" >
                   <img

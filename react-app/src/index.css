@@ -200,7 +200,7 @@
   padding-top: 50px;
   padding-bottom: 50px;
   position: sticky;
-  /* margin: 30px; */
+  margin: auto;
 }
 
 .no-shops-container {
@@ -222,6 +222,7 @@
 
 .entire-no-shops {
   min-width: 580px;
+  margin: auto;
 }
 
 @media only screen and (max-width: 1415px) {
@@ -234,12 +235,6 @@
   .user-shops-page-inner-container {
     padding-left: 30px !important;
     padding-right: 30px !important;
-  }
-  .entire-no-shops {
-    padding-right: 30px !important;
-  }
-  .no-shop-img {
-    margin-right: 30px !important;
   }
 }
 
@@ -313,4 +308,5 @@
   margin-bottom: 10px;
   border: 2px solid rgb(215, 213, 213);
   border-radius: 5px;
+  background-image: url("https://i.imgur.com/wbRhn3O.png");
 }

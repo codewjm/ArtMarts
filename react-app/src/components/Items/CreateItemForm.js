@@ -17,9 +17,12 @@ const CreateItemForm = () => {
   const [item_price, setItem_Price] = useState("");
   const [item_description, setItem_Description] = useState("");
   const [item_img, setItem_Img] = useState("");
+  // const defaultItemImg = useState("https://i.imgur.com/wbRhn3O.png")
   // const [shop_id, setShop_Id] = useState("");
   const [errors, setErrors] = useState([]);
   const [submitted, setSubmitted] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+
 
   const imageRegX = /\.(jpeg|jpg|png|svg)$/
   const parsedPrice = parseFloat(item_price).toFixed(2);
@@ -62,6 +65,7 @@ const CreateItemForm = () => {
 
     if (errors.length) return
 
+    // let itemPhoto = submitted ? item.item_img : defaultItemImg
     const itemData = {
       owner_id: user.id,
       item_name: item_name,
@@ -71,7 +75,8 @@ const CreateItemForm = () => {
       shop_id: Number(shopId)
     };
     return await dispatch(createItemThunk(itemData))
-    .then(dispatch(getAllShopsThunk()))
+    .then(() => dispatch(getAllShopsThunk()))
+    // .then(() => setLoaded(true))
     .then(history.push(`/shops/${shopId}`))
   }
 

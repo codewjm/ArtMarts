@@ -17,10 +17,13 @@
 .SP-shops-outer-container {
   display: flex;
   justify-content: space-between;
+  position: relative;
+  width: 100%;
+  max-width: 990px;
   height: 115px;
   margin-top: 20px;
-  position: relative;
-  max-width: 1325px
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .SP-shop-card-container {
@@ -64,7 +67,7 @@
 
 
 
-.SP-shops-inner-container{
+/* .SP-shops-inner-container{
 
   display: flex;
   flex-direction: column;
@@ -73,4 +76,4 @@
   top: 25px;
   margin-left: 20px;;
   margin-right: 20px;;
-}
+} */

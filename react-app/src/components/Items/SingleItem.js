@@ -13,6 +13,7 @@ const SingleItem = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const itemId = useParams();
+  // const defaultItemImg = useState("https://i.imgur.com/wbRhn3O.png")
   const [loaded, setLoaded] = useState(false);
 
   const user = useSelector((state) => state?.session.user);
@@ -65,6 +66,8 @@ const SingleItem = () => {
     history.push(`/items/${itemId}/update`)
   }
 
+  // let itemPhoto = loaded ? item.item_img : defaultItemImg
+
   return loaded && (
     <div>
       <h1>Single Item</h1>
@@ -73,8 +76,14 @@ const SingleItem = () => {
         <img
           className="item-page-img"
           src={item?.item_img}
+          onError={({ currentTarget }) => {
+            currentTarget.onerror = null; // prevents looping
+            currentTarget.src={defaultItem};
+          }}
+          // src={item.item_img}
+          // src="https://i.imgur.com/wbRhn3O.png"
           alt="Item Image"
-          onError={(e) => {e.target.src = defaultItem}}
+          // onError={(e) => {e.target.src = "https://i.imgur.com/wbRhn3O.png"}}
           />
       </div>
       <div>${item?.item_price}</div>
