@@ -65,8 +65,6 @@
   font-weight: bold;
 }
 
-
-
 /* .SP-shops-inner-container{
 
   display: flex;
@@ -76,4 +74,44 @@
   top: 25px;
   margin-left: 20px;;
   margin-right: 20px;;
+} */
+
+/* items CSS*/
+
+.SP-items-outer-container {
+  display: flex;
+  justify-content: center;
+  max-width: 1325px;
+  width: 100%;
+  padding-top: 150px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.SP-item-cards-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px 25px;
+}
+
+/* .SP-item-card-container:hover {
+  cursor: pointer;
+  box-shadow: 0px 4px 8px -3px rgba(0, 0, 0, 0.57);
+} */
+
+.SP-single-item-card {
+  display: flex;
+  border-radius: 5px;
+}
+
+.SP-single-item-card:hover{
+  cursor: pointer;
+  box-shadow: 0px 4px 8px -3px rgba(0, 0, 0, 0.57);
+}
+
+/* .splashPage-all{
+  display: flex;
+  justify-content: center;
 } */

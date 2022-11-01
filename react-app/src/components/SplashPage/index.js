@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getAllShopsThunk } from '../../store/shop';
 import { getAllItemsThunk } from '../../store/item';
-import ShopsCard from '../ShopCard';
+// import ShopsCard from '../ShopCard';
+import ItemsCard from '../ItemCard';
 import defaultArtMart3 from '../Images/defaultArtMart3.png'
 import "./SplashPage.css";
 
@@ -13,17 +14,16 @@ const SplashPage = () => {
   const user = useSelector((state) => state.session.user);
   const shops = useSelector((state) => state.shops);
   const items = useSelector((state) => state.items);
-
   const shopsArray = Object.values(shops);
-
   const limitShops = shopsArray.slice(0, 6)
+  const itemsArray = Object.values(items);
 
   useEffect(() => {
     dispatch(getAllShopsThunk()).then(() => dispatch(getAllItemsThunk()))
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="splashPage-all">
       <div className="splash-page-container">
         <div className="SP-orange-banner">
 
@@ -51,7 +51,15 @@ const SplashPage = () => {
           </div>
         </div>
       </div>
-
+      <div className="SP-items-outer-container">
+        <div className="SP-item-cards-container">
+          {itemsArray.map((item) => (
+            <div className="SP-single-item-card">
+              <ItemsCard item={item} />
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   )
 }
