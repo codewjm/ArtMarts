@@ -8,6 +8,7 @@ import CreateItemForm from "../Items/CreateItemForm";
 import defaultShop from "../Images/defaultShop.png";
 import MonetizeYourPassion from '../Images/MonetizeYourPassion.png'
 import defaultArtMart3 from '../Images/defaultArtMart3.png'
+import './SingleShop.css'
 
 const SingleShop = () => {
   const dispatch = useDispatch();
@@ -49,10 +50,11 @@ const SingleShop = () => {
   //   }, []);
 
 
-  if (shop?.id !== thisShopId) return <Redirect to="/user-shops" />
-    console.log("shop.id", shop?.id)
-    console.log("shopId", shopId.shopId)
-    console.log("thisShopId", thisShopId)
+  // if (shop?.id != thisShopId) return <Redirect to="/user-shops" />
+
+  console.log("shop.id", shop?.id)
+  console.log("shopId", shopId.shopId)
+  console.log("thisShopId", thisShopId)
 
   const removeShop = (shopId) => async (e) => {
     e.preventDefault();
@@ -78,39 +80,55 @@ const SingleShop = () => {
   // console.log("shop.id", shop?.id);
 
   return loaded && (
-    <div>
-      <div onClick={() => history.push(`/shops/${shop?.id}`)}>
-        <h1>SingleShop</h1>
-        <div>
-          <img
-            className="shop-page-img"
-            src={shop?.shop_img}
-            alt="Shop Image"
-            onError={(e) => {e.target.src = defaultArtMart3}}
-          />
+    <div className="singleShop-all">
+      <div className="SS-orange-banner">
+        <div className="singleShop-header">
+          <div className="header-left">
+            <div onLoad={() => history.push(`/shops/${shop.id}`)}>
+              <div>
+                <img
+                  className="shop-page-img"
+                  src={shop?.shop_img}
+                  alt="Shop Image"
+                  onError={(e) => { e.target.src = defaultArtMart3 }}
+                />
+              </div>
+            </div>
+
+            <div className="SS-name-description">
+              <div className="SS-shop-name">{shop?.shop_name}</div>
+              <div className="SS-shop-description">{shop?.shop_description}</div>
+            </div>
+          </div>
+
+          <div className="header-right">
+            <div>
+              {(user?.id === shop?.owner_id) && (
+                <div onClick={updateShop(shop?.id)}>Update Shop</div>
+              )}
+            </div>
+            <div>
+              {(user?.id === shop?.owner_id) && (
+                <div onClick={removeShop(shop?.id)}>Remove Shop</div>
+              )}
+            </div>
+            <div>
+              {(user?.id === shop?.owner_id) && (
+                <div onClick={addItem(shop?.id)}>Add Item</div>
+              )}
+            </div>
+          </div>
         </div>
-        <div>{shop?.shop_name}</div>
-        <div>{shop?.shop_description}</div>
       </div>
-      <div>
-        {(user?.id === shop?.owner_id) && (
-          <div onClick={updateShop(shop?.id)}>Update Shop</div>
-        )}
-      </div>
-      <div>
-        {(user?.id === shop?.owner_id) && (
-          <div onClick={removeShop(shop?.id)}>Remove Shop</div>
-        )}
-      </div>
-      <div>
-        {(user?.id === shop?.owner_id) && (
-          <div onClick={addItem(shop?.id)}>Add Item</div>
-        )}
-      </div>
-      <div>
-        {itemsArray.map((item) => (
-          <ItemCard key={item.id} item={item} />
-        ))}
+      
+      <div className="SS-items-outer-container">
+        <div className="SS-item-cards-container">
+          {itemsArray.map((item) => (
+            <div className="SP-single-item-card">
+              <ItemCard key={item.id} item={item} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

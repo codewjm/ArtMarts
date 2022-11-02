@@ -4,14 +4,6 @@
   /* padding-right: 50px; */
 }
 
-html {
-  width: 100vw;
-  /* overflow: auto; */
-  /* overflow-x: hidden; */
-  /* margin-right: 50px; */
-
-  /* scrollbar-gutter: stable; */
-}
 
 body {
   margin-right: 80px;
@@ -90,7 +82,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100px;
+  height: 150px;
   background-color: bisque;
   position: sticky;
   top: 0px;
@@ -120,13 +112,6 @@ body {
   margin-bottom: 12px;
 }
 
-.shop-page-img {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  margin-bottom: 10px;
-  border-radius: 5px;
-}
 
 .create-shop-button {
   display: flex;

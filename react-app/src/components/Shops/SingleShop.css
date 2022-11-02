@@ -1,0 +1,87 @@
+.SS-orange-banner {
+  display: flex;
+  height: 150px;
+  background-color: bisque;
+  position: sticky;
+  top: 0px;
+  z-index: 8;
+}
+
+.singleShop-header {
+  /* display: flex;
+  justify-content: space-between;
+  margin-top: 70px;
+  margin-bottom: 1px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1325px;
+  width: 100%;
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+  bottom: 0px; */
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  max-width: 1325px;
+  height: 165px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.shop-page-img {
+  display: inline-block;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.header-left {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-right: 25px;
+}
+
+.SS-name-description {
+  display: flex;
+  flex-direction: column;
+  margin-left: 22px;
+}
+
+
+.SS-items-outer-container {
+  display: flex;
+  justify-content: center;
+  max-width: 1325px;
+  width: 100%;
+  padding-top: 150px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.SS-item-cards-container {
+  display: flex;
+  flex-direction: row;
+  width:100%;
+  flex-wrap: wrap;
+  gap: 25px 25px;
+}
+
+
+@media only screen and (max-width: 1415px) {
+  .SS-item-cards-container {
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+  }
+}
+
+@media only screen and (max-width: 1415px) {
+  .singleShop-header {
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+  }
+}
