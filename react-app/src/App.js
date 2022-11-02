@@ -82,7 +82,7 @@ function App() {
           <SingleItem />
         </Route>
       </Switch>
-      {/* <Footer /> */}
+      <Footer />
     </BrowserRouter>
   );
 }

@@ -4,8 +4,8 @@ import './Footer.css'
 
 const Footer = () => {
   return (
-    <div className="footer-master-container">
-      <div className="footer-inner-container">
+    <footer>
+      <div className="footer-container">
         <div className="footer-header">Connect with the Developer</div>
         <div className="dev-links">
           <a href='https://github.com/codewjm' target="_blank" title="Will's GitHub">
@@ -17,7 +17,7 @@ const Footer = () => {
         </div>
         {/* <div className="footer-footer">ArtMarts was devloped by Willard Marett and inspired by Etsy</div> */}
       </div>
-    </div>
+    </footer>
   )
 }
 
