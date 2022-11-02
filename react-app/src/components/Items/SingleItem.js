@@ -10,13 +10,13 @@ import defaultItem from "../Images/defaultItem.png";
 import "./SingleItem.css"
 
 
-const SingleItem = ( {}) => {
+const SingleItem = ({ }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const itemId = useParams();
   // const defaultItemImg = useState("https://i.imgur.com/wbRhn3O.png")
   const [loaded, setLoaded] = useState(false);
-
+const itemShopId = useSelector((state) => state?.item?.shop_id);
   const user = useSelector((state) => state?.session.user);
   const allShops = useSelector((state) => state.shops);
 
@@ -96,7 +96,12 @@ const SingleItem = ( {}) => {
       </div>
 
       <div className="item-page-right">
-        <div className="item-shop-name">{shopName}</div>
+
+        <div className="item-shop-name"
+          // onClick={history.push(`/shops/${itemShopId}`)}
+        >
+          More from&nbsp;<a href={`/shops/${shopId}`}  className="item-page-shop-link">{shopName}</a>
+        </div>
         <div className="item-name">{item?.item_name}</div>
         <div className="item-price">${item?.item_price}</div>
         <div className="item-description">{item?.item_description}</div>
@@ -104,8 +109,8 @@ const SingleItem = ( {}) => {
 
         {(user?.id === item?.owner_id) && (
           <div className="item-edit-buttons">
-            <div onClick={removeItem(item?.id)} >Remove Item</div>
-            <div onClick={updateItem(item?.id)} >Update Item</div>
+            <div onClick={removeItem(item?.id)}  className="item-edit-button">Remove Item</div>
+            <div onClick={updateItem(item?.id)} className="item-edit-button">Update Item</div>
           </div>
         )}
       </div>
