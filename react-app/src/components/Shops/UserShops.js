@@ -10,9 +10,9 @@ import MonetizeYourPassion from '../Images/MonetizeYourPassion.png'
 const UserShops = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const sessionUser = useSelector(state => state.session.user);
-  const first_name = useSelector(state => state.session.user.first_name);
-  const shops = useSelector(state => state.shops);
+  const sessionUser = useSelector(state => state?.session.user);
+  const first_name = useSelector(state => state?.session.user?.first_name);
+  const shops = useSelector(state => state?.shops);
   const [loaded, setLoaded] = useState(false);
 
 

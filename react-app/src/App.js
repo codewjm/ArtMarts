@@ -60,9 +60,12 @@ function App() {
         <Route path='/items' exact={true}>
           <AllItems />
         </Route>
-        <ProtectedRoute path='/user-shops' exact={true}>
+        {/* <ProtectedRoute path='/user-shops' exact={true}>
           <UserShops />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
+        <Route path='/user-shops' exact={true}>
+          <UserShops />
+        </Route>
         <ProtectedRoute path='/create-shop-form' exact={true} >
           <CreateShopForm />
         </ProtectedRoute>

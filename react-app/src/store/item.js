@@ -100,7 +100,7 @@ const itemReducer = (state = initialState, action) => {
       return newState;
     case DELETE_ITEM:
       newState = { ...state };
-      delete newState[action.payload];
+      delete newState[action.payload.id];
       return newState;
     default:
       return state;

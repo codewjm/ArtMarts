@@ -40,9 +40,9 @@ const DropNav = () => {
       {showDropNav && (
         <div className="drop-nav-open">
 
-          <div className="drop-nav-name"><i className="fas fa-user-circle" />{sessionUser?.first_name}</div>
+          {/* <div className="drop-nav-name"><i className="fas fa-user-circle" />{sessionUser?.first_name}</div> */}
           {/* <div className="drop-nav-option"><LogoutButton /></div> */}
-          <div><LogoutButton /></div>
+          <div ><LogoutButton /></div>
         </div>
       )}
     </div>

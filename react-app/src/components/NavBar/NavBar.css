@@ -6,6 +6,8 @@
   max-width: 100%;
   top: 0px;
   bottom: 0px;
+  height: 70px;
+  padding-top: 5px;
   /* overflow-x: auto; */
   z-index: 10;
   /* padding-right: 30px !important;
@@ -17,12 +19,11 @@
   justify-content: space-between;
   /* flex-direction: row; */
   align-items: center;
-  margin-top: 1px;
-  margin-bottom: 1px;
   margin-left: auto;
   margin-right: auto;
   max-width: 1325px;
   /* width: 99%; */
+  height: 40px;
   padding-top: 12px !important;
   padding-bottom: 12px !important;
   bottom: 0px;
@@ -179,7 +180,7 @@
   font-size: 14px;
   right: 0;
   top: calc(100% + 10px);
-  width: 200px;
+  width: 100px;
   white-space: nowrap;
   overflow: hidden;
   border-radius: 11px;

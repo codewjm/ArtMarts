@@ -120,6 +120,7 @@ body {
   justify-content: center;
   background-color: white;
   color: #F1641E;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.57);
   font-size: 16px;
   font-weight: 700;
   padding: 8px 16px;
@@ -137,6 +138,7 @@ body {
   justify-content: center;
   background-color: white;
   color: #F1641E;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.57);
   font-size: 16px;
   font-weight: 700;
   padding: 8px 16px;
@@ -147,8 +149,12 @@ body {
   z-index: 10 !important;
 }
 
+.create-shop-button-no-shop:hover {
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.57);
+}
+
 .create-shop-button:hover {
-  box-shadow: 0px 4px 8px -3px rgba(0, 0, 0, 0.57);
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.57);
 }
 
 .user-shops-page-outer-container {
@@ -296,16 +302,4 @@ body {
   .no-shops-title {
     margin-left: 100px !important;
   }
-}
-
-/* Items CSS */
-
-.item-page-img {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  margin-bottom: 10px;
-  border: 2px solid rgb(215, 213, 213);
-  border-radius: 5px;
-  /* background-image: url("https://i.imgur.com/wbRhn3O.png"); */
 }

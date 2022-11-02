@@ -116,12 +116,16 @@ const SingleShop = () => {
           )}
         </div>
       </div>
-      <div className="items-header">All items from {shop?.shop_name}</div>
+      {itemsArray.length > 0 ?
+        <div className="items-header">All items from {shop?.shop_name}</div>
+        :
+        <div className="items-header">{shop?.shop_name} is out of stock</div>
+      }
       <div className="SS-items-outer-container">
         <div className="SS-item-cards-container">
           {itemsArray.map((item) => (
-            <div className="SP-single-item-card">
-              <ItemCard key={item.id} item={item} />
+            <div className="SP-single-item-card" key={item?.id} >
+              <ItemCard item={item} />
             </div>
           ))}
         </div>

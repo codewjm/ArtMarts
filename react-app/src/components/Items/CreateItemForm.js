@@ -76,6 +76,7 @@ const CreateItemForm = () => {
     };
     return await dispatch(createItemThunk(itemData))
     .then(() => dispatch(getAllShopsThunk()))
+    .then(() => dispatch(getAllItemsThunk()))
     // .then(() => setLoaded(true))
     .then(history.push(`/shops/${shopId}`))
   }
