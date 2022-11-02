@@ -101,26 +101,22 @@ const SingleShop = () => {
             </div>
           </div>
 
-          <div className="header-right">
-            <div>
-              {(user?.id === shop?.owner_id) && (
-                <div onClick={updateShop(shop?.id)}>Update Shop</div>
-              )}
+          {(user?.id === shop?.owner_id) && (
+            <div className="header-right">
+              <div className="shop-option-button" onClick={updateShop(shop?.id)}>
+                Update Shop
+              </div>
+              <div className="shop-option-button" onClick={removeShop(shop?.id)}>
+                Remove Shop
+              </div>
+              <div className="shop-option-button" onClick={addItem(shop?.id)}>
+                Add Item
+              </div>
             </div>
-            <div>
-              {(user?.id === shop?.owner_id) && (
-                <div onClick={removeShop(shop?.id)}>Remove Shop</div>
-              )}
-            </div>
-            <div>
-              {(user?.id === shop?.owner_id) && (
-                <div onClick={addItem(shop?.id)}>Add Item</div>
-              )}
-            </div>
-          </div>
+          )}
         </div>
       </div>
-      
+      <div className="items-header">All items from {shop?.shop_name}</div>
       <div className="SS-items-outer-container">
         <div className="SS-item-cards-container">
           {itemsArray.map((item) => (

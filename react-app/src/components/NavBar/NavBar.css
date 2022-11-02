@@ -74,6 +74,7 @@
   display: flex;
   /* position: absolute; */
   background-color: transparent;
+  font-family: Cambria;
   cursor: pointer;
   padding: 8px;
 }
@@ -90,6 +91,7 @@
   display: flex;
   /* position: absolute; */
   background-color: transparent;
+  font-family: Cambria;
   cursor: pointer;
   padding: 8px;
 }
