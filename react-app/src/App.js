@@ -18,6 +18,7 @@ import SingleItem from './components/Items/SingleItem';
 import CreateItemForm from './components/Items/CreateItemForm';
 import UpdateItemForm from './components/Items/UpdateItemForm';
 import SplashPage from './components/SplashPage';
+import Footer from './components/Footer/Footer';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -81,6 +82,7 @@ function App() {
           <SingleItem />
         </Route>
       </Switch>
+      {/* <Footer /> */}
     </BrowserRouter>
   );
 }
