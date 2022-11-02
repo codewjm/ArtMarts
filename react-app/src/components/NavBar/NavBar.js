@@ -19,6 +19,7 @@ const NavBar = () => {
       <div className="master-nav-container">
         <div className="nav-container">
           <div id="nav-bar-logo" onClick={() => history.push('/')}>ArtMarts</div>
+          {/* <div className="search-bar">future search bar</div> */}
           {!sessionUser && (
             <>
               <div className="sign-in-sign-up-container small-text">

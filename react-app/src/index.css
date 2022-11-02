@@ -1,8 +1,21 @@
 /* TODO Add site wide styles */
 #root {
   font-family: 'georgia';
+  /* padding-right: 50px; */
 }
 
+html {
+  width: 100vw;
+  /* overflow: auto; */
+  /* overflow-x: hidden; */
+  /* margin-right: 50px; */
+
+  /* scrollbar-gutter: stable; */
+}
+
+body {
+  margin-right: 80px;
+}
 
 .form-outer-container {
   display: flex;
@@ -155,6 +168,7 @@
 
 .user-shops-page-outer-container {
   width: 100%;
+  /* padding-right: 5px; */
   /* margin-top: 50px; */
 
 }
@@ -308,5 +322,5 @@
   margin-bottom: 10px;
   border: 2px solid rgb(215, 213, 213);
   border-radius: 5px;
-  background-image: url("https://i.imgur.com/wbRhn3O.png");
+  /* background-image: url("https://i.imgur.com/wbRhn3O.png"); */
 }
