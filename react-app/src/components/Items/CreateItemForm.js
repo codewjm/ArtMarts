@@ -67,7 +67,7 @@ const CreateItemForm = () => {
       setErrors(errors);
     }
   }, [item_name, item_price, item_description, item_img, user]);
-
+//comment
 
   const handleSubmit = async (e) => {
     e.preventDefault();
