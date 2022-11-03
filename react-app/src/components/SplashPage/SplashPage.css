@@ -37,6 +37,37 @@
   margin-right: auto;
 }
 
+.SP-items-header {
+  display: flex;
+  justify-content: center;
+  /* position: absolute; */
+  /* font-family: Gerogia !important; */
+  font-family: Cambria;
+  font-size: xx-large;
+  max-width: 300px;
+  /* color: #F1641E; */
+  color: rgb(52, 52, 52);
+  height: 60px;
+  margin-top: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.SP-no-items-header {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-family: Cambria;
+  font-size: xx-large;
+  max-width: 400px;
+  color: rgb(52, 52, 52);
+  height: 60px;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 80px;
+}
+
 .SP-no-shops-header {
   display: flex;
   justify-content: center;
@@ -114,11 +145,14 @@
   color: rgb(81, 81, 81);
   font-family: Helvetica, Arial, Sans-Serif;
   transition: 60ms ease-in-out;
+  word-break: break-word;
+
 }
 
 .SP-shop-name-container:hover {
   cursor: pointer;
   border-bottom: 2px solid rgb(52, 52, 52);
+  word-break: break-word;
 }
 
 /* .SP-shops-inner-container{
@@ -139,7 +173,7 @@
   justify-content: center;
   max-width: 1325px;
   width: 100%;
-  padding-top: 150px;
+  padding-top: 15px;
   margin-left: auto;
   margin-right: auto;
 }

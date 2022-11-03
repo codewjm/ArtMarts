@@ -49,13 +49,13 @@ const UpdateShopForm = () => {
     else {
 
       if (shop_name.length < 2 || shop_name.length > 50) {
-        errors.push("shop name: must be between 2 and 50 characters.")
+        errors.push("ArtMart name must be between 2 and 50 characters")
       }
-      if (shop_description.length < 2 || shop_description.length > 255) {
-        errors.push("shop name: must be between 2 and 255 characters.")
+      if (shop_description.length < 2 || shop_description.length > 120) {
+        errors.push("ArtMart description must be between 2 and 120 characters")
       }
-      if (shop_img.length < 2 || !shop_img.split('?')[0].match(imageRegX)) {
-        errors.push("image: must be a valid type: jpg, jpeg, png, svg.")
+      if (shop_img.length > 0 && !shop_img.split('?')[0].match(imageRegX)) {
+        errors.push("Image must be a valid type: jpg, jpeg, png, svg")
       }
 
       setErrors(errors);
@@ -85,54 +85,53 @@ const UpdateShopForm = () => {
     <div className="form-outer-container">
       <form onSubmit={handleSubmit}>
         <div className="form-header">Please Fill Out The Following Fields:</div>
+        <div className="required-field">(Fields labeled with&nbsp;<div className="asterisk">*</div>&nbsp;are required)</div>
         <div className="form-container">
           <div className="create_errors">
             {submitted && (errors).map((error, i) => (
               <div className="errorMessageContainer" key={i}>
-                <i className="fa-solid fa-exclamation exclamation-point"></i>
                 <div className="errorMessage">{error}</div>
               </div>
             ))}
           </div>
           <div>
-            <label htmlFor='Shop Name' className='form-field-label'>Shop Name</label>
+            <label htmlFor='Shop Name' className='form-field-label'>ArtMart Name&nbsp;<div className="asterisk">*</div></label>
             <input
               className="form-field"
               name="Shop Name"
               type="text"
               value={shop_name}
-              placeholder="Shop Name"
+              placeholder="ArtMart Name"
               onChange={(e) => setShop_Name(e.target.value)}
               required
             />
           </div>
           <div>
-            <label htmlFor='Shop Description' className='form-field-label'>Shop Description</label>
+            <label htmlFor='Shop Description' className='form-field-label'>ArtMart Description&nbsp;<div className="asterisk">*</div></label>
             <input
               className="form-field"
               name="Shop Description"
               type="text"
               value={shop_description}
-              placeholder="Shop Description"
+              placeholder="ArtMart Description"
               onChange={(e) => setShop_Description(e.target.value)}
               required
             />
           </div>
           <div>
-            <label htmlFor='Shop Image' className='form-field-label'>Shop Image</label>
+            <label htmlFor='Shop Image' className='form-field-label'>ArtMart Image </label>
             <input
               className="form-field"
               name="Shop Image"
               type="text"
               value={shop_img}
-              placeholder="Shop Image"
+              placeholder="ArtMart Image"
               onChange={(e) => setShop_Img(e.target.value)}
-              required
             />
           </div>
           <div>
             <button name="submit" type="submit" className="form-button">
-              Update Shop
+              Update ArtMart
             </button>
           </div>
         </div>
@@ -143,123 +142,3 @@ const UpdateShopForm = () => {
 }
 
 export default UpdateShopForm;
-
-
-
-// import React, { useEffect, useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { useHistory, useParams } from "react-router-dom";
-// import { getAllShopsThunk, updateShopThunk} from "../../store/shop";
-// import { getAllUsersThunk } from "../../store/user";
-
-// const UpdateShopForm = () => {
-//   const dispatch = useDispatch();
-//   const history = useHistory();
-//   const { shopId }= useParams();
-//   const user = useSelector((state) => state.session.user);
-//   const allShops = useSelector((state) => state.shops);
-//   const shop = allShops[shopId];
-
-//   console.log("shop for autofill data", shop)
-//   console.log("allshops UPshop**", allShops)
-
-//   // useEffect(() => {
-//   //   dispatch(getAllShopsThunk()).then(dispatch(getAllUsersThunk())).then(() => setLoaded(true))
-//   // }, [])
-
-//   const [shop_name, setShop_Name] = useState(shop?.shop_name || "");
-//   const [shop_description, setShop_Description] = useState(shop?.shop_description || "");
-//   const [shop_img, setShop_Img] = useState(shop?.shop_img || "");
-//   const [errors, setErrors] = useState([]);
-//   const [submitted, setSubmitted] = useState(false);
-//   const [loaded, setLoaded] = useState(false);
-
-//   const imageRegX = /\.(jpeg|jpg|png|svg)$/
-
-// // aufill data persist attempts ****************************
-
-// useEffect(() => {
-
-//   (async (shopId) => {
-//     await dispatch(getAllShopsThunk()).then(() => history.push(`/shops/${shopId}/update`))
-//     await setLoaded(true);
-//   })();
-// }, []);
-
-// const updateShop = (shopId) => async (e) => {
-//   e.preventDefault();
-//   history.push(`/shops/${shopId}/update`);
-// };
-
-// useEffect(() => {
-//   // dispatch(getAllShopsThunk()).then(dispatch(getAllUsersThunk()))
-//   updateShop(shop?.id)
-//   .then(() => updateShop(shop?.id))
-//   .then(() => setLoaded(true))
-
-// }, [])
-
-
-
-//   const shopAutofill = document.getElementById({shopId});
-
-//   console.log("shopAutofill", shopAutofill)
-//   useEffect(() => {
-//     shop_name = shop?.shop_name || ""
-//     shop_description = shop?.shop_description || ""
-//     shop_img = shop?.shop_img || ""
-
-//     dispatch(getAllShopsThunk()).then(() => setLoaded(true))
-//   }, [])
-
-//   window.localStorage.setItem('shop_name', )
-
-//   useEffect(() => {
-//     const data = window.localStorage.getItem('shop_name');
-//     console.log("data", data)
-//   }, []);
-
-
-// ************************************************ */
-
-
-//   useEffect(() => {
-//     let errors = [];
-//     setLoaded(true);
-
-//     if (!user) {
-//       errors.push("You must be logged in to create a shop");
-//       setErrors(errors);
-//     }
-//     else {
-
-//       if (shop_name.length < 2 || shop_name.length > 50) {
-//         errors.push("shop name: must be between 2 and 50 characters.")
-//       }
-//       if (shop_description.length < 2 || shop_description.length > 255) {
-//         errors.push("shop name: must be between 2 and 255 characters.")
-//       }
-//       if (shop_img.length < 2 || !shop_img.split('?')[0].match(imageRegX)) {
-//         errors.push("image: must be a valid type: jpg, jpeg, png, svg.")
-//       }
-
-//       setErrors(errors);
-//     }
-//   }, [shop_name, shop_description, shop_img, user]);
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     setSubmitted(true);
-
-//     if (errors.length) return
-
-//     const shopData = {
-//       owner_id: user.id,
-//       shop_name: shop_name,
-//       shop_description: shop_description,
-//       shop_img: shop_img,
-//     };
-//     return dispatch(updateShopThunk(shopData, shopId.shopId))
-//     .then(dispatch(getAllShopsThunk()))
-//     .then(history.push(`/shops/${shopId.shopId}`))
-//   };

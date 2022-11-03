@@ -53,6 +53,12 @@ const SplashPage = () => {
           </div>
         </div>
       </div>
+      <div className=""> { itemsArray.length > 0 ?
+          <div className="SP-items-header">Featured Items</div>
+          :
+          <div className="SP-no-items-header">We seem to have no Items at this time.</div>
+        }
+        </div>
       <div className="SP-items-outer-container">
         <div className="SP-item-cards-container">
           {itemsArray.map((item) => (

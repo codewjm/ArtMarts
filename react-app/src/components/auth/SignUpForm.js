@@ -20,23 +20,23 @@ const SignUpForm = () => {
   useEffect(() => {
     let errors = [];
 
-    if (first_name.length < 2 || first_name.length > 50) {
-      errors.push("First name must be between 2 and 50 characters")
+    if (first_name.length < 1 || first_name.length > 20) {
+      errors.push("First name must be between 1 and 20 characters")
     }
-    if (last_name.length < 2 || last_name.length > 50) {
-      errors.push("Last name must be between 2 and 50 characters")
+    if (last_name.length < 1 || last_name.length > 20) {
+      errors.push("Last name must be between 1 and 20 characters")
     }
-    if (!email.match(emailRegX)) {
-      errors.push("Email must be valid email address ( example@ex.com )")
-    }
-    if (username.length < 2 || username.length > 50) {
-      errors.push("Username must be between 2 and 50 characters")
+    if (username.length < 2 || username.length > 20) {
+      errors.push("Username must be between 2 and 20 characters")
     }
     if (email.length < 2 || email.length > 50) {
       errors.push("Email must be between 2 and 50 characters")
     }
-    if (password.length < 6 || password.length > 50) {
-      errors.push('Password must be between 6 and 50 characters');
+    if (!email.match(emailRegX)) {
+      errors.push("Email must be a valid email address ( example@ex.com )")
+    }
+    if (password.length < 6 || password.length > 30) {
+      errors.push('Password must be between 6 and 30 characters');
     }
     if (password !== repeatPassword) {
       errors.push('Passwords must match');
@@ -88,6 +88,8 @@ const SignUpForm = () => {
   return (
     <div className="form-outer-container">
       <form onSubmit={onSignUp}>
+      <div className="form-header">Please Fill Out The Following Fields:</div>
+      <div className="required-field">(Fields labeled with&nbsp;<div className="asterisk">*</div>&nbsp;are required)</div>
         <div className="form-container">
           <div className="create_errors">
             {submitted && (errors).map((error, i) => (
@@ -97,7 +99,7 @@ const SignUpForm = () => {
             ))}
           </div>
           <div>
-            <label className='form-field-label'>First Name</label>
+            <label className='form-field-label'>First Name&nbsp;<div className="asterisk">*</div></label>
             <input
               className="form-field"
               type='text'
@@ -108,7 +110,7 @@ const SignUpForm = () => {
             ></input>
           </div>
           <div>
-            <label className='form-field-label'>Last Name</label>
+            <label className='form-field-label'>Last Name&nbsp;<div className="asterisk">*</div></label>
             <input
               className="form-field"
               type='text'
@@ -119,37 +121,40 @@ const SignUpForm = () => {
             ></input>
           </div>
           <div>
-            <label className='form-field-label'>User Name</label>
+            <label className='form-field-label'>Username&nbsp;<div className="asterisk">*</div></label>
             <input
               className="form-field"
               type='text'
               name='username'
               onChange={updateUsername}
               value={username}
+              required
             ></input>
           </div>
           <div>
-            <label className='form-field-label'>Email</label>
+            <label className='form-field-label'>Email&nbsp;<div className="asterisk">*</div></label>
             <input
               className="form-field"
               type='text'
               name='email'
               onChange={updateEmail}
               value={email}
+              required
             ></input>
           </div>
           <div>
-            <label className='form-field-label'>Password</label>
+            <label className='form-field-label'>Password&nbsp;<div className="asterisk">*</div></label>
             <input
               className="form-field"
               type='password'
               name='password'
               onChange={updatePassword}
               value={password}
+              required
             ></input>
           </div>
           <div>
-            <label className='form-field-label'>Repeat Password</label>
+            <label className='form-field-label'>Confirm Password&nbsp;<div className="asterisk">*</div></label>
             <input
               className="form-field"
               type='password'

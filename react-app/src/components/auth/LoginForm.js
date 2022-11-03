@@ -36,6 +36,8 @@ const LoginForm = () => {
   return (
     <div className="form-outer-container">
       <form onSubmit={onLogin}>
+        <div className="form-header">Please Sign In:</div>
+        <div className="required-field">(Fields labeled with&nbsp;<div className="asterisk">*</div>&nbsp;are required)</div>
         <div className="form-container">
           <div className="create_errors">
             {submitted && (errors).map((error, i) => (
@@ -45,7 +47,7 @@ const LoginForm = () => {
             ))}
           </div>
           <div>
-            <label htmlFor='email' className='form-field-label'>Email</label>
+            <label htmlFor='email' className='form-field-label'>Email&nbsp;<div className="asterisk">*</div></label>
             <input
               className="form-field"
               name='email'
@@ -57,7 +59,7 @@ const LoginForm = () => {
             />
           </div>
           <div>
-            <label htmlFor='password' className='form-field-label'>Password</label>
+            <label htmlFor='password' className='form-field-label'>Password&nbsp;<div className="asterisk">*</div></label>
             <input
               className="form-field"
               name='password'

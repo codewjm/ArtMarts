@@ -39,7 +39,9 @@
 
 .shop-card-name {
   font-size: 20px;
+  width: 250px;
   margin-bottom: 15px;
+  margin-top: 15px;
 }
 
 .shop-card-description {

@@ -44,7 +44,7 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  max-width: 500px;
+  max-width: 700px;
   min-width: 345px;
   max-height: 130px;
   margin-right: 25px;
@@ -56,6 +56,7 @@
   flex-direction: column;
   margin-left: 22px;
   max-height: 130px;
+  word-break: break-word;
   text-overflow: ellipsis;
 }
 
@@ -72,10 +73,15 @@
   text-overflow: ellipsis;
 }
 
-@media only screen and (max-width: 690px) {
+@media only screen and (max-width: 940px) {
   .SS-shop-name {
-    font-weight: 600;
     font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .SS-shop-name {
+    font-size: 15px;
   }
 }
 

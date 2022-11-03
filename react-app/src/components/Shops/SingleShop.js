@@ -104,10 +104,10 @@ const SingleShop = () => {
           {(user?.id === shop?.owner_id) && (
             <div className="header-right">
               <div className="shop-option-button" onClick={updateShop(shop?.id)}>
-                Update Shop
+                Update ArtMart
               </div>
               <div className="shop-option-button" onClick={removeShop(shop?.id)}>
-                Remove Shop
+                Remove ArtMart
               </div>
               <div className="shop-option-button" onClick={addItem(shop?.id)}>
                 Add Item

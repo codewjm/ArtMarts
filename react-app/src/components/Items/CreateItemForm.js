@@ -10,7 +10,7 @@ const CreateItemForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const user = useSelector((state) => state.session.user);
-  const { shopId }= useParams();
+  const { shopId } = useParams();
 
 
   const [item_name, setItem_Name] = useState("");
@@ -31,12 +31,12 @@ const CreateItemForm = () => {
   //     setItem_Price(parseFloat(item_price).toFixed(2))
   // }
 
-  const formattedPrice = 
-  // const  = `(${item_price.slice(0, 3)}),${item_price.slice(3, 6)},${item_price.slice(6, 10)}`
+  // const itemPrice = (item_price).toFixed(2)
 
-  useEffect(() => {
-    dispatch(getAllShopsThunk()).then(dispatch(getAllUsersThunk()))
-  }, [dispatch]);
+
+    useEffect(() => {
+      dispatch(getAllShopsThunk()).then(dispatch(getAllUsersThunk()))
+    }, [dispatch]);
 
 
   useEffect(() => {
@@ -51,19 +51,22 @@ const CreateItemForm = () => {
       if (item_name.length < 2 || item_name.length > 50) {
         errors.push("Item name must be between 2 and 50 characters")
       }
-      // if (item_price !== parsedPrice || item_price.length > 10) {
-      //   errors.push("Item price must be less than $9999999.00")
+      // if (item_price !== itemPrice && item_price.length > 10) {
+      //   errors.push("Please provide a price in this format: 0.00")
       // }
+      if (item_price.length > 10) {
+        errors.push("Item price must be less than $999,999.00")
+      }
       if (item_description.length < 2 || item_description.length > 255) {
         errors.push("Item description must be between 2 and 255 characters")
       }
-      // if (item_img.length < 2 || !item_img.split('?')[0].match(imageRegX)) {
-      //   errors.push("Image must be a valid type: jpg, jpeg, png, svg.")
-      // }
+      if (item_img.length > 0 && !item_img.split('?')[0].match(imageRegX)) {
+        errors.push("Image must be a valid type: jpg, jpeg, png, svg")
+      }
 
       setErrors(errors);
     }
-  }, [item_name, item_price, item_description, user]);
+  }, [item_name, item_price, item_description, item_img, user]);
 
 
   const handleSubmit = async (e) => {
@@ -82,10 +85,10 @@ const CreateItemForm = () => {
       shop_id: Number(shopId)
     };
     return await dispatch(createItemThunk(itemData))
-    .then(() => dispatch(getAllShopsThunk()))
-    .then(() => dispatch(getAllItemsThunk()))
-    // .then(() => setLoaded(true))
-    .then(history.push(`/shops/${shopId}`))
+      .then(() => dispatch(getAllShopsThunk()))
+      .then(() => dispatch(getAllItemsThunk()))
+      // .then(() => setLoaded(true))
+      .then(history.push(`/shops/${shopId}`))
   }
 
   // console.log("shopId", shopId);
@@ -96,6 +99,7 @@ const CreateItemForm = () => {
     <div className="form-outer-container">
       <form onSubmit={handleSubmit}>
         <div className="form-header">Please Fill Out The Following Fields:</div>
+        <div className="required-field">(Fields labeled with&nbsp;<div className="asterisk">*</div>&nbsp;are required)</div>
         <div className="form-container">
           <div className="create_errors">
             {submitted && (errors).map((error, i) => (
@@ -105,7 +109,7 @@ const CreateItemForm = () => {
             ))}
           </div>
           <div>
-            <label htmlFor='Item Name' className='form-field-label'>Item Name</label>
+            <label htmlFor='Item Name' className='form-field-label'>Item Name&nbsp;<div className="asterisk">*</div></label>
             <input
               className="form-field"
               name="Item Name"
@@ -117,7 +121,7 @@ const CreateItemForm = () => {
             />
           </div>
           <div>
-            <label htmlFor='Item Price' className='form-field-label'>Item Price</label>
+            <label htmlFor='Item Price' className='form-field-label'>Item Price&nbsp;<div className="asterisk">*</div></label>
             <input
               className="form-field"
               name="Item Price"
@@ -129,7 +133,7 @@ const CreateItemForm = () => {
             />
           </div>
           <div>
-            <label htmlFor='Item Description' className='form-field-label'>Item Description</label>
+            <label htmlFor='Item Description' className='form-field-label'>Item Description&nbsp;<div className="asterisk">*</div></label>
             <input
               className="form-field"
               name="Item Description"
@@ -153,7 +157,7 @@ const CreateItemForm = () => {
           </div>
           <div>
             <button name="submit" type="submit" className="form-button">
-              Add an Item
+              Add Item
             </button>
           </div>
         </div>
