@@ -10,13 +10,13 @@ import defaultItem from "../Images/defaultItem.png";
 import "./SingleItem.css"
 
 
-const SingleItem = ({ }) => {
+const SingleItem = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const itemId = useParams();
   // const defaultItemImg = useState("https://i.imgur.com/wbRhn3O.png")
   const [loaded, setLoaded] = useState(false);
-const itemShopId = useSelector((state) => state?.item?.shop_id);
+  const itemShopId = useSelector((state) => state?.item?.shop_id);
   const user = useSelector((state) => state?.session.user);
   const allShops = useSelector((state) => state.shops);
 
@@ -84,14 +84,14 @@ const itemShopId = useSelector((state) => state?.item?.shop_id);
         <img
           className="item-page-img"
           src={item?.item_img}
-          onError={({ currentTarget }) => {
-            currentTarget.onerror = null; // prevents looping
-            currentTarget.src = { defaultItem };
-          }}
+          // onError={({ currentTarget }) => {
+          //   currentTarget.onerror = null; // prevents looping
+          //   currentTarget.src = { defaultItem };
+          // }}
           // src={item.item_img}
           // src="https://i.imgur.com/wbRhn3O.png"
-          alt="Item Image"
-        // onError={(e) => {e.target.src = "https://i.imgur.com/wbRhn3O.png"}}
+        alt="Item Image"
+        onError={(e) => {e.target.src=defaultItem}}
         />
       </div>
 

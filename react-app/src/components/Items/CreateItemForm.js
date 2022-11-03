@@ -25,7 +25,14 @@ const CreateItemForm = () => {
 
 
   const imageRegX = /\.(jpeg|jpg|png|svg)$/
-  const parsedPrice = parseFloat(item_price).toFixed(2);
+  // if (item_price.length > 5) {
+  //   setItem_Price(`(${item_price.slice(0, 2)}),${item_price.slice(3, 6)}.${item_price.slice(6, 8)}`)
+  // } else if (item_price.length > 2 && item_price.length < 6) {
+  //     setItem_Price(parseFloat(item_price).toFixed(2))
+  // }
+
+  const formattedPrice = 
+  // const  = `(${item_price.slice(0, 3)}),${item_price.slice(3, 6)},${item_price.slice(6, 10)}`
 
   useEffect(() => {
     dispatch(getAllShopsThunk()).then(dispatch(getAllUsersThunk()))
@@ -44,9 +51,9 @@ const CreateItemForm = () => {
       if (item_name.length < 2 || item_name.length > 50) {
         errors.push("Item name must be between 2 and 50 characters")
       }
-      if (item_price !== parsedPrice) {
-        errors.push("Item price must be a valid price ( 0.00 )")
-      }
+      // if (item_price !== parsedPrice || item_price.length > 10) {
+      //   errors.push("Item price must be less than $9999999.00")
+      // }
       if (item_description.length < 2 || item_description.length > 255) {
         errors.push("Item description must be between 2 and 255 characters")
       }

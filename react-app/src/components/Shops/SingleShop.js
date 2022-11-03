@@ -90,7 +90,7 @@ const SingleShop = () => {
                   className="shop-page-img"
                   src={shop?.shop_img}
                   alt="Shop Image"
-                  onError={(e) => { e.target.src = defaultArtMart3 }}
+                  onError={(e) => { e.target.src=defaultArtMart3}}
                 />
               </div>
             </div>
