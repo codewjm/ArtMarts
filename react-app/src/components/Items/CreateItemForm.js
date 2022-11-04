@@ -28,8 +28,8 @@ const CreateItemForm = () => {
   // console.log("parsedPriceInput", parsedPriceInput)
 
 
-  const parsedPrice = Number(item_price.replace(/[^0-9.]/g, '')).toFixed(2)
-  const onlyNums = /^\$?([0-9]{1,3},([0-9]{3},)*[0-9]{3}|[0-9]+)(.[0-9][0-9])?$/
+  const parsedPrice = Number(item_price.replace(/[^0-9./,]/g, '')).toFixed(2)
+  const onlyNums = /^[0-9]+(\.[0-9]{1,2})?$/
   const imageRegX = /\.(jpeg|jpg|png|svg)$/
 
   // console.log("priceRegex", item_price.match(priceRegex))
