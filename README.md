@@ -36,12 +36,12 @@ Hosted On:
 ![image](https://user-images.githubusercontent.com/20654267/192156972-28d4bd6a-7012-4d73-8bbd-105cfba12108.png)
 
 
-### MVP Features
+### Current MVP Features
 * Shops 
 * Items
 
 
-### Features Coming Soon
+### Road Map: Future Features
 * AWS Implementation for Uploading Images
 * Search Bar
 * Reviews 
