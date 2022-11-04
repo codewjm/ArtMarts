@@ -13,6 +13,9 @@ const ItemsCard = ({ item }) => {
   const allShops = useSelector((state) => state.shops);
   const shop = allShops[shopId.shopId];
   const user = useSelector((state) => state.session.user);
+  const itemPrice = item?.item_price
+
+  const formattedPrice = (+itemPrice).toLocaleString("en-US", {style:"currency", currency:"USD"})
 
   // console.log("shop", )
   // console.log("item", item)
@@ -21,7 +24,7 @@ const ItemsCard = ({ item }) => {
       <div className="item-card-container">
       <div className="item-card-price">
           <span>
-            ${item?.item_price}
+            {formattedPrice}
           </span>
         </div>
         <img

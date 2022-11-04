@@ -36,6 +36,8 @@ const UpdateItemForm = () => {
     }
   }, [item]);
 
+  const parsedPrice = Number(item_price.replace(/[^0-9.]/g, '')).toFixed(2)
+  const onlyNums = /^\$?([0-9]{1,3},([0-9]{3},)*[0-9]{3}|[0-9]+)(.[0-9][0-9])?$/
   const imageRegX = /\.(jpeg|jpg|png|svg)$/
 
   useEffect(() => {
@@ -50,11 +52,8 @@ const UpdateItemForm = () => {
       if (item_name.length < 2 || item_name.length > 50) {
         errors.push("Item name must be between 2 and 50 characters")
       }
-            // if (item_price !== parsedPrice || item_price.length > 10) {
-      //   errors.push("Item price must be less than $9999999.00")
-      // }
-      if (item_price.length > 10) {
-        errors.push("Item price must be less than $999,999.00")
+      if (parsedPrice >= 100000.00 || parsedPrice <= 0.00 || !onlyNums.test(item_price)) {
+        errors.push("Item prices must be a number greater than '$0.00' and less than '$99,999.99' (prices with cents must be in '$.$$' format)")
       }
       if (item_description.length < 2 || item_description.length > 255) {
         errors.push("Item description must be between 2 and 255 characters")
@@ -78,7 +77,7 @@ const UpdateItemForm = () => {
     const itemData = {
       owner_id: user.id,
       item_name: item_name,
-      item_price: item_price,
+      item_price: parsedPrice,
       item_description: item_description,
       item_img: item_img,
       shop_id: shop_id

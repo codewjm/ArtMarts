@@ -28,8 +28,14 @@ const SingleItem = () => {
 
   const allItems = useSelector((state) => state?.items);
   const item = allItems[itemId?.itemId];
-  const itemShop = item?.shop_id;
+  const itemPrice = item?.item_price
 
+  const formattedPrice = (+itemPrice).toLocaleString("en-US", {style:"currency", currency:"USD"})
+  // console.log(formattedPrice)
+
+
+
+  const itemShop = item?.shop_id;
   const itemStateId = allItems[itemId]
 
   // if(!item) history.push("/user-shops");
@@ -38,15 +44,15 @@ const SingleItem = () => {
   const shopId = shop[0]?.id;
   const shopName = shop[0]?.shop_name
 
-  console.log("allShops", allShops)
-  console.log("all items", allItems)
-  console.log("item", item);
-  console.log("items shop_id", itemShop);
-  console.log("shop", shop);
-  console.log("shop owner id", shopOwnerId);
-  console.log("user id", user?.id);
-  console.log("shop id", shopId);
-  console.log("shop name", shop[0]?.shop_name)
+  // console.log("allShops", allShops)
+  // console.log("all items", allItems)
+  // console.log("item", item);
+  // console.log("items shop_id", itemShop);
+  // console.log("shop", shop);
+  // console.log("shop owner id", shopOwnerId);
+  // console.log("user id", user?.id);
+  // console.log("shop id", shopId);
+  // console.log("shop name", shop[0]?.shop_name)
 
   useEffect(() => {
     (async () => {
@@ -103,7 +109,7 @@ const SingleItem = () => {
           More from&nbsp;<a href={`/shops/${shopId}`}  className="item-page-shop-link">{shopName}</a>
         </div>
         <div className="item-name">{item?.item_name}</div>
-        <div className="item-price">${item?.item_price}</div>
+        <div className="item-price">{(formattedPrice).toLocaleString("en-US", {style:"currency", currency:"USD"})}</div>
         <div className="item-description">{item?.item_description}</div>
 
 

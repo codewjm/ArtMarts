@@ -24,19 +24,55 @@ const CreateItemForm = () => {
   const [loaded, setLoaded] = useState(false);
 
 
+  // const parsedPriceInput = Number(item_price.replace(/[^0-9.,]/g, '')).toFixed(2)
+  // console.log("parsedPriceInput", parsedPriceInput)
+
+
+  const parsedPrice = Number(item_price.replace(/[^0-9.]/g, '')).toFixed(2)
+  const onlyNums = /^\$?([0-9]{1,3},([0-9]{3},)*[0-9]{3}|[0-9]+)(.[0-9][0-9])?$/
   const imageRegX = /\.(jpeg|jpg|png|svg)$/
-  // if (item_price.length > 5) {
-  //   setItem_Price(`(${item_price.slice(0, 2)}),${item_price.slice(3, 6)}.${item_price.slice(6, 8)}`)
-  // } else if (item_price.length > 2 && item_price.length < 6) {
-  //     setItem_Price(parseFloat(item_price).toFixed(2))
-  // }
 
-  // const itemPrice = (item_price).toFixed(2)
+  // console.log("priceRegex", item_price.match(priceRegex))
+
+  /************************************** */
+  // Item Price handling Logic
+
+  // USER INPUT (anything)
+  // const numOne = "$1000000"
+  // const parsedPriceOne = parseFloat(numOne.replace(/[^0-9.]/g, '')).toFixed(2)
+  // console.log("parsed Price One*******", parsedPriceOne)
+  // output: "1000000.00"  (string)
 
 
-    useEffect(() => {
-      dispatch(getAllShopsThunk()).then(dispatch(getAllUsersThunk()))
-    }, [dispatch]);
+  //INPUT
+  // const toStringNum = 1000000.65
+  // const toStringPrice = toStringNum.toString()
+  // console.log("toStringPrice****", toStringPrice)
+  // output: "1000000.65"  (string)
+
+  //CONDITION
+  // const numTwo = "$1,000,000.65"
+  // const parsedPriceTwo = parseFloat(numTwo.replace(/[^0-9.]/g, ''))
+  // console.log("parsed Price Two*******", parsedPriceTwo)
+  // // output: 1000000.65 (integer)
+
+  // if (parsedPriceTwo >= 100000.00) console.log("THROW ERROR")
+
+
+  //OUTPUT - for item display forms
+  // const parseNum = 1000000.65
+  // const formattedPrice = (parseNum).toLocaleString("en-US", { style: "currency", currency: "USD" })
+  // console.log("formatted Price*******", formattedPrice)
+  // output: "$1,000,000.65"  (string)
+
+  // if (1000000 < 1000000.65) console.log(true)
+  // else console.log(false)
+
+  /************************************** */
+
+  useEffect(() => {
+    dispatch(getAllShopsThunk()).then(dispatch(getAllUsersThunk()))
+  }, [dispatch]);
 
 
   useEffect(() => {
@@ -51,11 +87,8 @@ const CreateItemForm = () => {
       if (item_name.length < 2 || item_name.length > 50) {
         errors.push("Item name must be between 2 and 50 characters")
       }
-      // if (item_price !== itemPrice && item_price.length > 10) {
-      //   errors.push("Please provide a price in this format: 0.00")
-      // }
-      if (item_price.length > 10) {
-        errors.push("Item price must be less than $999,999.00")
+      if (parsedPrice >= 100000.00 || parsedPrice <= 0.00 || !onlyNums.test(item_price)) {
+        errors.push("Item prices must be a number greater than '$0.00' and less than '$99,999.99' (prices with cents must be in '$.$$' format)")
       }
       if (item_description.length < 2 || item_description.length > 255) {
         errors.push("Item description must be between 2 and 255 characters")
@@ -67,7 +100,7 @@ const CreateItemForm = () => {
       setErrors(errors);
     }
   }, [item_name, item_price, item_description, item_img, user]);
-//comment
+  //comment
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -79,7 +112,7 @@ const CreateItemForm = () => {
     const itemData = {
       owner_id: user.id,
       item_name: item_name,
-      item_price: item_price,
+      item_price: parsedPrice,
       item_description: item_description,
       item_img: item_img,
       shop_id: Number(shopId)

@@ -24,6 +24,7 @@ body {
 .form-outer-container {
   display: flex;
   justify-content: center;
+  word-break: break-word;
 }
 
 .form-container {
@@ -31,6 +32,7 @@ body {
   flex-direction: column;
   justify-content: center;
   position: relative;
+  word-break: break-word;
   top: 25px;
 }
 
@@ -52,6 +54,14 @@ body {
 .errorMessageContainer {
   display: flex;
   color: red;
+  width: 500px;
+  word-break: break-word;
+}
+
+.errorMessage {
+  display: flex;
+  margin-top: 8px;
+  /* height: 10px; */
 }
 
 

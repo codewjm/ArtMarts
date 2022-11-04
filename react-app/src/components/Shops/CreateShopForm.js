@@ -35,7 +35,7 @@ const CreateShopForm = () => {
         errors.push("ArtMart description must be between 2 and 120 characters")
       }
       if (shop_img.length > 0 && !shop_img.split('?')[0].match(imageRegX)) {
-        errors.push("Image must be a valid type: jpg, jpeg, png, svg.")
+        errors.push("Image must be a valid type: jpg, jpeg, png, svg")
       }
 
       setErrors(errors);
