@@ -104,6 +104,7 @@ const SignUpForm = () => {
               className="form-field"
               type='text'
               name='first_name'
+              placeholder='First Name'
               onChange={updateFirstname}
               value={first_name}
               required
@@ -115,6 +116,7 @@ const SignUpForm = () => {
               className="form-field"
               type='text'
               name='last_name'
+              placeholder='Last Name'
               onChange={updateLastname}
               value={last_name}
               required
@@ -126,6 +128,7 @@ const SignUpForm = () => {
               className="form-field"
               type='text'
               name='username'
+              placeholder='Username'
               onChange={updateUsername}
               value={username}
               required
@@ -137,6 +140,7 @@ const SignUpForm = () => {
               className="form-field"
               type='text'
               name='email'
+              placeholder='Email'
               onChange={updateEmail}
               value={email}
               required
@@ -148,6 +152,7 @@ const SignUpForm = () => {
               className="form-field"
               type='password'
               name='password'
+              placeholder='Password'
               onChange={updatePassword}
               value={password}
               required
@@ -159,6 +164,7 @@ const SignUpForm = () => {
               className="form-field"
               type='password'
               name='repeat_password'
+              placeholder='Confrim Password'
               onChange={updateRepeatPassword}
               value={repeatPassword}
               required

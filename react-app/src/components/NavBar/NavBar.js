@@ -18,13 +18,13 @@ const NavBar = () => {
     <>
       <div className="master-nav-container">
         <div className="nav-container">
-          <div id="nav-bar-logo" onClick={() => history.push('/')}>ArtMarts</div>
+          <div id="nav-bar-logo" title="ArtMarts Home" onClick={() => history.push('/')}>ArtMarts</div>
           {/* <div className="search-bar">future search bar</div> */}
           {!sessionUser && (
             <>
               <div className="sign-in-sign-up-container small-text">
-                <div className="sign-in-button" onClick={() => history.push('/login')}>Sign in</div>
-                <div className="sign-up-button" onClick={() => history.push(`/sign-up`)}>Register</div>
+                <div className="sign-in-button" title="Sign in" onClick={() => history.push('/login')}>Sign in</div>
+                <div className="sign-up-button" title="Register" onClick={() => history.push(`/sign-up`)}>Register</div>
               </div>
             </>
           )}

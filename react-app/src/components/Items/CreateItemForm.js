@@ -178,7 +178,7 @@ const CreateItemForm = () => {
             />
           </div>
           <div>
-            <label htmlFor='Item Image' className='form-field-label'>Item Image (optional)</label>
+            <label htmlFor='Item Image' className='form-field-label'>Item Image</label>
             <input
               className="form-field"
               name="Item Image"

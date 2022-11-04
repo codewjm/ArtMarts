@@ -32,7 +32,7 @@ const DropNav = () => {
 
 
   return (
-    <div className="drop-nav" onClick={openDropNav}>
+    <div className="drop-nav" title="Account Options" onClick={openDropNav}>
       <div className="drop-nav-button">
         <i className="fa-solid fa-user-circle fa-bold" />
         <i className="fa-sharp fa-solid fa-caret-down"></i>
