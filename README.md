@@ -1,7 +1,9 @@
-![ArtMarts-logo-old-2](https://user-images.githubusercontent.com/95896008/199977578-f68a9b4f-56c6-4ffd-b228-a6ea865f67b2.png)
-# ArtMarts
+> ![ArtMarts-logo-old-2](https://user-images.githubusercontent.com/95896008/199977578-f68a9b4f-56c6-4ffd-b228-a6ea865f67b2.png)  
+> ### **_"Monetize Your Passion_"**
 
-[ArtMarts](https://artmarts.herokuapp.com/) is an MVP clone of the [Etsy](https://www.etsy.com/) web application.  
+# **ArtMarts**
+
+[ArtMarts](https://artmarts.herokuapp.com/) is an online marketplace web API inspired by [Etsy](https://www.etsy.com/). With a focus on artists, ArtMarts offers its users the ability to purchase and/or sell art-related products and supplies. Our aim is to _empower_ artists through trade.
 
 
 #### Site Resources: 
