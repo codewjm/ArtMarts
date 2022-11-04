@@ -45,6 +45,7 @@ Hosted On:
 # ArtMarts API Preview
 
 ### Current MVP Features:
+* User Authentication
 * Shops 
 * Items
 
