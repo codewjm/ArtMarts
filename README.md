@@ -39,9 +39,44 @@ Hosted On:
 ![image](https://user-images.githubusercontent.com/20654267/192156972-28d4bd6a-7012-4d73-8bbd-105cfba12108.png)
 
 
-### Current MVP Features
+# ArtMarts API Preview:
+
+## Current MVP Features
 * Shops 
 * Items
+
+## Splash Page 
+
+![splash-page](https://user-images.githubusercontent.com/95896008/199967386-f937f9a6-9a53-4f52-af15-44c6c6691ded.png)
+
+## Register New User Form
+
+![register-page](https://user-images.githubusercontent.com/95896008/199967546-57734614-0458-4546-ab89-6ce03cf31ce7.png)
+
+## Sign In Form 
+
+![sign-in-page](https://user-images.githubusercontent.com/95896008/199967749-bb741801-3fa5-4228-a6d8-abd399560e28.png)
+
+## User ArtMarts Page
+
+![user-shop-page](https://user-images.githubusercontent.com/95896008/199967972-178777a6-b528-4e9b-a912-6cdef954224f.png)
+
+## ArtMart Creation Form
+
+![create-artmart-page](https://user-images.githubusercontent.com/95896008/199968140-b9609463-ccac-4237-a3fa-18c611b91832.png)
+
+
+## Individual ArtMart Page
+
+![owned-shop-page](https://user-images.githubusercontent.com/95896008/199968180-8805ff11-e743-4dae-8c5a-88021a7afebd.png)
+
+## Item Creation Form (Add Item to an ArtMart)
+
+![create-item-form](https://user-images.githubusercontent.com/95896008/199968264-740d1f0b-3cc9-4956-91a6-f99dfb89ffe3.png)
+
+## Individual Item Page
+
+![single-item-page](https://user-images.githubusercontent.com/95896008/199969425-f832a445-520e-4c9b-8c84-224ce85025b4.png)
 
 
 ### Road Map: Future Features
