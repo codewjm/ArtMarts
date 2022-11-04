@@ -3,7 +3,7 @@
 
 # **ArtMarts**
 
-[ArtMarts](https://artmarts.herokuapp.com/) is an online marketplace web API inspired by [Etsy](https://www.etsy.com/). With a focus on artists, ArtMarts offers its users the ability to purchase and/or sell art-related products and supplies. Our aim is to _empower_ artists through trade.
+**[ArtMarts](https://artmarts.herokuapp.com/)** is an online marketplace web API inspired by [Etsy](https://www.etsy.com/). With a focus on artists, ArtMarts offers its users the ability to purchase and/or sell art-related products and supplies. Our aim is to **_empower_** artists through trade.
 
 
 #### Site Resources: 
@@ -11,7 +11,7 @@
 * [ArtMarts Live Link](https://artmarts.herokuapp.com/)
 * [API Routes](https://github.com/codewjm/ArtMarts/wiki/API-Routes)
 * [Database Schema](https://github.com/codewjm/ArtMarts/wiki/Database-Schema)
-* [MVP Features](https://github.com/codewjm/ArtMarts/wiki/MVP-Features)
+* [Features](https://github.com/codewjm/ArtMarts/wiki/MVP-Features)
 * [Redux State Shape](https://github.com/codewjm/ArtMarts/wiki/Redux-State-Shape)
 * [User Stories](https://github.com/codewjm/ArtMarts/wiki/User-Stories)
 * [Wireframes](https://github.com/codewjm/ArtMarts/wiki/Wireframes)
