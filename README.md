@@ -13,6 +13,8 @@
 * [User Stories](https://github.com/codewjm/ArtMarts/wiki/User-Stories)
 * [Wireframes](https://github.com/codewjm/ArtMarts/wiki/Wireframes)
 
+## Tech Stack: Frameworks, Platforms, and Libraries
+
 Frontend:
 
 ![image](https://user-images.githubusercontent.com/20654267/192156837-122333b5-1337-4630-abcd-e48f538c141d.png)
