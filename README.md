@@ -1,9 +1,10 @@
-## ArtMarts
+![ArtMarts-logo-old-2](https://user-images.githubusercontent.com/95896008/199977578-f68a9b4f-56c6-4ffd-b228-a6ea865f67b2.png)
+# ArtMarts
 
 [ArtMarts](https://artmarts.herokuapp.com/) is an MVP clone of the [Etsy](https://www.etsy.com/) web application.  
 
 
-### Site Resources: 
+#### Site Resources: 
 
 * [ArtMarts Live Link](https://artmarts.herokuapp.com/)
 * [API Routes](https://github.com/codewjm/ArtMarts/wiki/API-Routes)
@@ -39,44 +40,43 @@ Hosted On:
 ![image](https://user-images.githubusercontent.com/20654267/192156972-28d4bd6a-7012-4d73-8bbd-105cfba12108.png)
 
 
-# ArtMarts API Preview:
+# ArtMarts API Preview
 
-## Current MVP Features
+### Current MVP Features:
 * Shops 
 * Items
 
-## Splash Page 
+## ArtMarts Home Page (Splash Page)
 
-![splash-page](https://user-images.githubusercontent.com/95896008/199967386-f937f9a6-9a53-4f52-af15-44c6c6691ded.png)
+![splash-page](https://user-images.githubusercontent.com/95896008/199979438-c060fa13-223b-4739-97a3-a021c5cb0e7b.png)
 
-## Register New User Form
+## New User Registration Form
 
-![register-page](https://user-images.githubusercontent.com/95896008/199967546-57734614-0458-4546-ab89-6ce03cf31ce7.png)
+![register-page](https://user-images.githubusercontent.com/95896008/199979468-ef5ae3ca-44a4-488a-ac21-7fa262b44282.png)
 
 ## Sign In Form 
 
-![sign-in-page](https://user-images.githubusercontent.com/95896008/199967749-bb741801-3fa5-4228-a6d8-abd399560e28.png)
+![sign-in-page](https://user-images.githubusercontent.com/95896008/199979610-f63f6d81-e668-482b-ba76-b5665a468f70.png)
 
 ## User ArtMarts Page
 
-![user-shop-page](https://user-images.githubusercontent.com/95896008/199967972-178777a6-b528-4e9b-a912-6cdef954224f.png)
+![user-shop-page](https://user-images.githubusercontent.com/95896008/199979629-735f7cef-de97-4008-b3b7-593f55eb94e7.png)
 
 ## ArtMart Creation Form
 
-![create-artmart-page](https://user-images.githubusercontent.com/95896008/199968140-b9609463-ccac-4237-a3fa-18c611b91832.png)
-
+![create-artmart-page](https://user-images.githubusercontent.com/95896008/199979669-e6e45c66-1e43-48df-b855-5add150e8af8.png)
 
 ## Individual ArtMart Page
 
-![owned-shop-page](https://user-images.githubusercontent.com/95896008/199968180-8805ff11-e743-4dae-8c5a-88021a7afebd.png)
+![owned-shop-page](https://user-images.githubusercontent.com/95896008/199979803-c5e0ad73-c7a6-4fa0-aacf-b80a19258580.png)
 
 ## Item Creation Form (Add Item to an ArtMart)
 
-![create-item-form](https://user-images.githubusercontent.com/95896008/199968264-740d1f0b-3cc9-4956-91a6-f99dfb89ffe3.png)
+![create-item-form](https://user-images.githubusercontent.com/95896008/199979870-2daedc98-c0f7-4f73-8958-a6756b1ba725.png)
 
 ## Individual Item Page
 
-![single-item-page](https://user-images.githubusercontent.com/95896008/199969425-f832a445-520e-4c9b-8c84-224ce85025b4.png)
+![single-item-page](https://user-images.githubusercontent.com/95896008/199979904-a2ea4e3c-1e48-4220-9538-12df9440daca.png)
 
 
 ### Road Map: Future Features
