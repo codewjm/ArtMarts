@@ -51,7 +51,7 @@ Hosted On:
 * Categories 
 * Search 
 
-## Getting started
+## Build Steps:
 1. Clone this repository (only this branch)
 
    ```bash
