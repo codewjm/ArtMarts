@@ -28,12 +28,13 @@ const CreateItemForm = () => {
   // console.log("parsedPriceInput", parsedPriceInput)
 
 
-  const parsedPrice = Number(item_price.replace(/[^0-9./,]/g, '')).toFixed(2)
-  const onlyNums = /^[0-9]+(\.[0-9]{1,2})?$/
+  const parsedPrice = Number(item_price.replace(/[^0-9.]/g, '')).toFixed(2)
+  // const onlyNums = /^[0-9]+(\.[0-9]{1,2})?$/  // doesn't account for commas
+  const onlyNums = /^\$?([0-9]{0,2})([0-9]{0,3})?(\.[0-9]{2})?$/
   const imageRegX = /\.(jpeg|jpg|png|svg)$/
 
   // console.log("priceRegex", item_price.match(priceRegex))
-
+console.log("parsedPrice****", parsedPrice)
   /************************************** */
   // Item Price handling Logic
 
@@ -88,7 +89,7 @@ const CreateItemForm = () => {
         errors.push("Item name must be between 2 and 50 characters")
       }
       if (parsedPrice >= 100000.00 || parsedPrice <= 0.00 || !onlyNums.test(item_price)) {
-        errors.push("Item prices must be a number greater than '$0.00' and less than '$99,999.99' (prices with cents must be in '$.$$' format)")
+        errors.push("Item prices must be a number greater than '$0.00' and less than '$100,000.00' with no commas (prices with cents must be in '$.$$' format)")
       }
       if (item_description.length < 2 || item_description.length > 255) {
         errors.push("Item description must be between 2 and 255 characters")

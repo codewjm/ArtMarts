@@ -28,8 +28,8 @@ const CreateShopForm = () => {
     }
     else {
 
-      if (shop_name.length < 2 || shop_name.length > 50) {
-        errors.push("ArtMart name must be between 2 and 50 characters")
+      if (shop_name.length < 2 || shop_name.length > 35) {
+        errors.push("ArtMart name must be between 2 and 35 characters")
       }
       if (shop_description.length < 2 || shop_description.length > 120) {
         errors.push("ArtMart description must be between 2 and 120 characters")

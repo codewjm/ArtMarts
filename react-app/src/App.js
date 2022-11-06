@@ -48,18 +48,18 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        <Route path='/users' exact={true} >
+        {/* <Route path='/users' exact={true} >
           <UsersList />
-        </Route>
-        <Route path='/users/:userId' exact={true} >
+        </Route> */}
+        {/* <Route path='/users/:userId' exact={true} >
           <User />
-        </Route>
-        <Route path='/shops' exact={true} >
+        </Route> */}
+        {/* <Route path='/shops' exact={true} >
           <AllShops />
-        </Route>
-        <Route path='/items' exact={true}>
+        </Route> */}
+        {/* <Route path='/items' exact={true}>
           <AllItems />
-        </Route>
+        </Route> */}
         {/* <ProtectedRoute path='/user-shops' exact={true}>
           <UserShops />
         </ProtectedRoute> */}
