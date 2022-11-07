@@ -20,16 +20,16 @@ const SignUpForm = () => {
   useEffect(() => {
     let errors = [];
 
-    if (first_name.length < 1 || first_name.length > 20 || first_name.includes("  ")) {
+    if (first_name.length < 1 || first_name.length > 20 || first_name.includes(" ")) {
       errors.push("First name must be between 1 and 20 characters and contain no white space")
     }
-    if (last_name.length < 1 || last_name.length > 20 || last_name.includes("  ")) {
+    if (last_name.length < 1 || last_name.length > 20 || last_name.includes(" ")) {
       errors.push("Last name must be between 1 and 20 characters and contain no white space")
     }
-    if (username.length < 2 || username.length > 20 || username.includes("  ")) {
+    if (username.length < 2 || username.length > 20 || username.includes(" ")) {
       errors.push("Username must be between 2 and 20 characters and contain no white space")
     }
-    if (email.length < 2 || email.length > 50 || email.includes("  ")) {
+    if (email.length < 2 || email.length > 50 || email.includes(" ")) {
       errors.push("Email must be between 2 and 50 characters and contain no white space")
     }
     if (!email.match(emailRegX)) {
@@ -45,10 +45,13 @@ const SignUpForm = () => {
     setErrors(errors);
   }, [first_name, last_name, email, username, password, repeatPassword]);
 
+
+
   const onSignUp = async (e) => {
     e.preventDefault();
     setSubmitted(true);
 
+    if (errors.length > 0) return
     if (password === repeatPassword) {
       const data = await dispatch(signUp(first_name, last_name, email, username, password));
       if (data) {
@@ -56,6 +59,7 @@ const SignUpForm = () => {
       }
     }
   };
+
 
   const updateFirstname = (e) => {
     setFirst_Name(e.target.value);
@@ -107,7 +111,7 @@ const SignUpForm = () => {
               name='first_name'
               placeholder='First Name'
               onChange={updateFirstname}
-              value={first_name.trimStart().trimEnd()}
+              value={first_name}
               required
             ></input>
           </div>
@@ -119,7 +123,7 @@ const SignUpForm = () => {
               name='last_name'
               placeholder='Last Name'
               onChange={updateLastname}
-              value={last_name.trimStart().trimEnd()}
+              value={last_name}
               required
             ></input>
           </div>
@@ -131,7 +135,7 @@ const SignUpForm = () => {
               name='username'
               placeholder='Username'
               onChange={updateUsername}
-              value={username.trimStart().trimEnd()}
+              value={username}
               required
             ></input>
           </div>
@@ -143,7 +147,7 @@ const SignUpForm = () => {
               name='email'
               placeholder='Email'
               onChange={updateEmail}
-              value={email.trimStart().trimEnd()}
+              value={email}
               required
             ></input>
           </div>
@@ -155,7 +159,7 @@ const SignUpForm = () => {
               name='password'
               placeholder='Password'
               onChange={updatePassword}
-              value={password.trimStart().trimEnd()}
+              value={password}
               required
             ></input>
           </div>
@@ -167,7 +171,7 @@ const SignUpForm = () => {
               name='repeat_password'
               placeholder='Confrim Password'
               onChange={updateRepeatPassword}
-              value={repeatPassword.trimStart().trimEnd()}
+              value={repeatPassword}
               required
             ></input>
           </div>
