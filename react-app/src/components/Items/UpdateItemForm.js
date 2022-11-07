@@ -51,10 +51,10 @@ const UpdateItemForm = () => {
     else {
 
       if (item_name.length < 2 || item_name.length > 50 || item_name.includes("  ")) {
-        errors.push("Item name must be between 2 and 50 characters")
+        errors.push("Item name must be between 2 and 50 characters and must not contain any doubled or more white space")
       }
       if (parsedPrice >= 100000.00 || parsedPrice <= 0.00 || !onlyNums.test(item_price) || item_price.includes("  ")) {
-        errors.push("Item prices must be a number greater than '$0.00' and less than '$100,000.00' with no commas (prices with cents must be in '$.$$' format)")
+        errors.push("Item prices must must not contain any white space and be a number greater than '$0.00' and less than '$100,000.00' with no commas (prices with cents must be in '$.$$' format)")
       }
       if (item_description.length < 2 || item_description.length > 255 || item_description.includes("  ")) {
         errors.push("Item description must be between 2 and 255 characters")
