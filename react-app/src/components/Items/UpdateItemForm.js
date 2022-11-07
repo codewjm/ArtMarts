@@ -50,13 +50,13 @@ const UpdateItemForm = () => {
     }
     else {
 
-      if (item_name.length < 2 || item_name.length > 50) {
+      if (item_name.length < 2 || item_name.length > 50 || item_name.includes("  ")) {
         errors.push("Item name must be between 2 and 50 characters")
       }
-      if (parsedPrice >= 100000.00 || parsedPrice <= 0.00 || !onlyNums.test(item_price)) {
+      if (parsedPrice >= 100000.00 || parsedPrice <= 0.00 || !onlyNums.test(item_price) || item_price.includes("  ")) {
         errors.push("Item prices must be a number greater than '$0.00' and less than '$100,000.00' with no commas (prices with cents must be in '$.$$' format)")
       }
-      if (item_description.length < 2 || item_description.length > 255) {
+      if (item_description.length < 2 || item_description.length > 255 || item_description.includes("  ")) {
         errors.push("Item description must be between 2 and 255 characters")
       }
       if (item_img.length > 0 && !item_img.split('?')[0].match(imageRegX)) {
@@ -77,9 +77,9 @@ const UpdateItemForm = () => {
 
     const itemData = {
       owner_id: user.id,
-      item_name: item_name,
-      item_price: parsedPrice,
-      item_description: item_description,
+      item_name: item_name.trimStart().trimEnd(),
+      item_price: parsedPrice.trimStart().trimEnd(),
+      item_description: item_description.trimStart().trimEnd(),
       item_img: item_img,
       shop_id: shop_id
     };
@@ -94,6 +94,7 @@ const UpdateItemForm = () => {
       <form onSubmit={handleSubmit}>
         <div className="form-header">Please Fill Out The Following Fields:</div>
         <div className="required-field">(Fields labeled with&nbsp;<div className="asterisk">*</div>&nbsp;are required)</div>
+        <div className="required-field">(Fields must not contain any doubled or more white space)</div>
         <div className="form-container">
           <div className="create_errors">
             {submitted && (errors).map((error, i) => (

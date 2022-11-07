@@ -15,6 +15,8 @@ const CreateShopForm = () => {
   const [shop_img, setShop_Img] = useState("");
   const [errors, setErrors] = useState([]);
   const [submitted, setSubmitted] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+
 
   const imageRegX = /\.(jpeg|jpg|png|svg)$/
 
@@ -28,10 +30,11 @@ const CreateShopForm = () => {
     }
     else {
 
-      if (shop_name.length < 2 || shop_name.length > 35) {
+      if (shop_name.length < 2 || shop_name.length > 35 || shop_name.includes("  ")) {
+      // if (shop_name.length < 2 || shop_name.length > 35) {
         errors.push("ArtMart name must be between 2 and 35 characters")
       }
-      if (shop_description.length < 2 || shop_description.length > 120) {
+      if (shop_description.length < 2 || shop_description.length > 120 || shop_description.includes("  ")) {
         errors.push("ArtMart description must be between 2 and 120 characters")
       }
       if (shop_img.length > 0 && !shop_img.split('?')[0].match(imageRegX)) {
@@ -51,8 +54,8 @@ const CreateShopForm = () => {
 
     const shopData = {
       owner_id: user.id,
-      shop_name: shop_name,
-      shop_description: shop_description,
+      shop_name: shop_name.trimStart().trimEnd(),
+      shop_description: shop_description.trimStart().trimEnd(),
       shop_img: shop_img,
     };
     return await dispatch(createShopThunk(shopData))
@@ -67,6 +70,7 @@ const CreateShopForm = () => {
       <form onSubmit={handleSubmit}>
         <div className="form-header">Please Fill Out The Following Fields:</div>
         <div className="required-field">(Fields labeled with&nbsp;<div className="asterisk">*</div>&nbsp;are required)</div>
+        <div className="required-field">(Fields must not contain any doubled or more white space)</div>
         <div className="form-container">
           <div className="create_errors">
             {submitted && (errors).map((error, i) => (

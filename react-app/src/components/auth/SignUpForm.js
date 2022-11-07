@@ -20,23 +20,23 @@ const SignUpForm = () => {
   useEffect(() => {
     let errors = [];
 
-    if (first_name.length < 1 || first_name.length > 20) {
-      errors.push("First name must be between 1 and 20 characters")
+    if (first_name.length < 1 || first_name.length > 20 || first_name.includes("  ")) {
+      errors.push("First name must be between 1 and 20 characters and contain no white space")
     }
-    if (last_name.length < 1 || last_name.length > 20) {
-      errors.push("Last name must be between 1 and 20 characters")
+    if (last_name.length < 1 || last_name.length > 20 || last_name.includes("  ")) {
+      errors.push("Last name must be between 1 and 20 characters and contain no white space")
     }
-    if (username.length < 2 || username.length > 20) {
-      errors.push("Username must be between 2 and 20 characters")
+    if (username.length < 2 || username.length > 20 || username.includes("  ")) {
+      errors.push("Username must be between 2 and 20 characters and contain no white space")
     }
-    if (email.length < 2 || email.length > 50) {
-      errors.push("Email must be between 2 and 50 characters")
+    if (email.length < 2 || email.length > 50 || email.includes("  ")) {
+      errors.push("Email must be between 2 and 50 characters and contain no white space")
     }
     if (!email.match(emailRegX)) {
       errors.push("Email must be a valid email address ( example@ex.com )")
     }
-    if (password.length < 6 || password.length > 30) {
-      errors.push('Password must be between 6 and 30 characters');
+    if (password.length < 6 || password.length > 30 || password.includes(" ")) {
+      errors.push('Password must be between 6 and 30 characters and contain no white space');
     }
     if (password !== repeatPassword) {
       errors.push('Passwords must match');
@@ -90,6 +90,7 @@ const SignUpForm = () => {
       <form onSubmit={onSignUp}>
       <div className="form-header">Please Fill Out The Following Fields:</div>
       <div className="required-field">(Fields labeled with&nbsp;<div className="asterisk">*</div>&nbsp;are required)</div>
+      <div className="required-field">(Fields must not contain any white space)</div>
         <div className="form-container">
           <div className="create_errors">
             {submitted && (errors).map((error, i) => (
@@ -106,7 +107,7 @@ const SignUpForm = () => {
               name='first_name'
               placeholder='First Name'
               onChange={updateFirstname}
-              value={first_name}
+              value={first_name.trimStart().trimEnd()}
               required
             ></input>
           </div>
@@ -118,7 +119,7 @@ const SignUpForm = () => {
               name='last_name'
               placeholder='Last Name'
               onChange={updateLastname}
-              value={last_name}
+              value={last_name.trimStart().trimEnd()}
               required
             ></input>
           </div>
@@ -130,7 +131,7 @@ const SignUpForm = () => {
               name='username'
               placeholder='Username'
               onChange={updateUsername}
-              value={username}
+              value={username.trimStart().trimEnd()}
               required
             ></input>
           </div>
@@ -142,7 +143,7 @@ const SignUpForm = () => {
               name='email'
               placeholder='Email'
               onChange={updateEmail}
-              value={email}
+              value={email.trimStart().trimEnd()}
               required
             ></input>
           </div>
@@ -154,7 +155,7 @@ const SignUpForm = () => {
               name='password'
               placeholder='Password'
               onChange={updatePassword}
-              value={password}
+              value={password.trimStart().trimEnd()}
               required
             ></input>
           </div>
@@ -166,7 +167,7 @@ const SignUpForm = () => {
               name='repeat_password'
               placeholder='Confrim Password'
               onChange={updateRepeatPassword}
-              value={repeatPassword}
+              value={repeatPassword.trimStart().trimEnd()}
               required
             ></input>
           </div>

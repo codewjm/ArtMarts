@@ -85,14 +85,14 @@ console.log("parsedPrice****", parsedPrice)
     }
     else {
 
-      if (item_name.length < 2 || item_name.length > 50) {
-        errors.push("Item name must be between 2 and 50 characters")
+      if (item_name.length < 2 || item_name.length > 50 || item_name.includes("  ")) {
+        errors.push("Item name must be between 2 and 50 characters and contain no doubled white space")
       }
-      if (parsedPrice >= 100000.00 || parsedPrice <= 0.00 || !onlyNums.test(item_price)) {
-        errors.push("Item prices must be a number greater than '$0.00' and less than '$100,000.00' with no commas (prices with cents must be in '$.$$' format)")
+      if (parsedPrice >= 100000.00 || parsedPrice <= 0.00 || !onlyNums.test(item_price) || item_price.includes("  ")) {
+        errors.push("Item prices must not contain doubled white space, and be a number greater than '$0.00' and less than '$100,000.00' with no commas (prices with cents must be in '$.$$' format)")
       }
-      if (item_description.length < 2 || item_description.length > 255) {
-        errors.push("Item description must be between 2 and 255 characters")
+      if (item_description.length < 2 || item_description.length > 255 || item_description.includes("  ")) {
+        errors.push("Item description must be between 2 and 255 characters and contain no doubled white space")
       }
       if (item_img.length > 0 && !item_img.split('?')[0].match(imageRegX)) {
         errors.push("Image must be a valid type: jpg, jpeg, png, svg")
@@ -112,9 +112,9 @@ console.log("parsedPrice****", parsedPrice)
     // let itemPhoto = submitted ? item.item_img : defaultItemImg
     const itemData = {
       owner_id: user.id,
-      item_name: item_name,
-      item_price: parsedPrice,
-      item_description: item_description,
+      item_name: item_name.trimStart().trimEnd(),
+      item_price: parsedPrice.trimStart().trimEnd(),
+      item_description: item_description.trimStart().trimEnd(),
       item_img: item_img,
       shop_id: Number(shopId)
     };
@@ -134,6 +134,7 @@ console.log("parsedPrice****", parsedPrice)
       <form onSubmit={handleSubmit}>
         <div className="form-header">Please Fill Out The Following Fields:</div>
         <div className="required-field">(Fields labeled with&nbsp;<div className="asterisk">*</div>&nbsp;are required)</div>
+        <div className="required-field">(Fields must not contain any doubled or more white space)</div>
         <div className="form-container">
           <div className="create_errors">
             {submitted && (errors).map((error, i) => (

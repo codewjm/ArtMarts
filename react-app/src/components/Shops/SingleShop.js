@@ -36,9 +36,8 @@ const SingleShop = () => {
   useEffect(() => {
 
     (async () => {
-      dispatch(getAllShopsThunk())
-      dispatch(getAllItemsThunk())
-      setLoaded(true);
+      dispatch(getAllShopsThunk()).then(() =>dispatch(getAllItemsThunk())).then(() => setLoaded(true));
+
     })();
   }, [dispatch]);
 
