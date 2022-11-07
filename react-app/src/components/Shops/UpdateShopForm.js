@@ -49,10 +49,10 @@ const UpdateShopForm = () => {
     else {
 
       if (shop_name.length < 2 || shop_name.length > 50 || shop_name.includes("  ")) {
-        errors.push("ArtMart name must be between 2 and 35 characters must not contain any doubled or more white space")
+        errors.push("ArtMart name must be between 2 and 35 characters and must not contain any doubled or more white space")
       }
       if (shop_description.length < 2 || shop_description.length > 120 || shop_description.includes("  ")) {
-        errors.push("ArtMart description must be between 2 and 120 characters must not contain any doubled or more white space")
+        errors.push("ArtMart description must be between 2 and 120 characters and must not contain any doubled or more white space")
       }
       if (shop_img.length > 0 && !shop_img.split('?')[0].match(imageRegX)) {
         errors.push("Image must be a valid type: jpg, jpeg, png, svg")
