@@ -3,7 +3,7 @@
 
 # **ArtMarts**
 
-**[ArtMarts](https://artmarts.herokuapp.com/)** is an online marketplace web API inspired by [Etsy](https://www.etsy.com/). With a focus on artists, ArtMarts offers its users the ability to purchase and/or sell art-related products and supplies. Our aim is to **_empower_** artists through trade.
+**[ArtMarts](https://artmarts.herokuapp.com/)** is an online marketplace full stack web application inspired by [Etsy](https://www.etsy.com/). With a focus on artists, ArtMarts offers its users the ability to purchase and/or sell art-related products and supplies. Our aim is to **_empower_** artists through trade.
 
 
 #### Site Resources: 
